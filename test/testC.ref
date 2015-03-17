@@ -1,0 +1,1026 @@
+Verbose output engaged!
+Reading coordinates from file "miniTest.pqr" and radii from "../lib/sc_radii.lib"
+read 99 radius definitions from file ../lib/sc_radii.lib
+Allocated memory for up to 20 atoms
+Reading input pdb file and assigning radii to atoms by name...
+
+All atoms were assigned radii successfully.
+L: 11.280843
+nAtoms: 8
+largest atom radius: 1.950000 Angstrom
+0 -1.180 -0.745 2.505  1.650
+1 -0.804 -0.857 1.086  1.850
+2 -0.590 0.536 0.475  1.900
+3 -0.229 0.460 -1.013  1.900
+4 -0.093 2.069 -1.837  1.900
+5 0.917 1.576 -3.257  1.950
+6 0.429 -1.748 0.923  1.800
+7 1.552 -1.288 1.120  1.600
+
+Starting Monte-Carlo area measurement.
+Projecting at angles: 0.15708 1.0472
+Calculation converged for this set of angles. Area: 119.784 Estimated Error: 9.18703
+Projecting at angles: 0.15708 2.0944
+Calculation converged for this set of angles. Area: 144.739 Estimated Error: 9.65051
+Projecting at angles: 0.15708 3.14159
+Calculation converged for this set of angles. Area: 102.815 Estimated Error: 8.75905
+Projecting at angles: 0.15708 4.18879
+Calculation converged for this set of angles. Area: 105.809 Estimated Error: 8.84188
+Projecting at angles: 0.15708 5.23599
+Calculation converged for this set of angles. Area: 135.755 Estimated Error: 9.50478
+Projecting at angles: 0.15708 6.28319
+Calculation converged for this set of angles. Area: 114.793 Estimated Error: 9.07133
+Projecting at angles: 0.314159 0.523599
+Calculation converged for this set of angles. Area: 100.818 Estimated Error: 8.70198
+Projecting at angles: 0.314159 1.0472
+Calculation converged for this set of angles. Area: 108.804 Estimated Error: 8.92149
+Projecting at angles: 0.314159 1.5708
+Calculation converged for this set of angles. Area: 143.741 Estimated Error: 9.63544
+Projecting at angles: 0.314159 2.0944
+Calculation converged for this set of angles. Area: 122.779 Estimated Error: 9.25259
+Projecting at angles: 0.314159 2.61799
+Calculation converged for this set of angles. Area: 144.739 Estimated Error: 9.65051
+Projecting at angles: 0.314159 3.14159
+Calculation converged for this set of angles. Area: 114.793 Estimated Error: 9.07133
+Projecting at angles: 0.314159 3.66519
+Calculation converged for this set of angles. Area: 114.793 Estimated Error: 9.07133
+Projecting at angles: 0.314159 4.18879
+Calculation converged for this set of angles. Area: 112.797 Estimated Error: 9.02274
+Projecting at angles: 0.314159 4.71239
+Calculation converged for this set of angles. Area: 136.754 Estimated Error: 9.52211
+Projecting at angles: 0.314159 5.23599
+Calculation converged for this set of angles. Area: 138.75 Estimated Error: 9.55591
+Projecting at angles: 0.314159 5.75959
+Calculation converged for this set of angles. Area: 117.788 Estimated Error: 9.14173
+Projecting at angles: 0.314159 6.28319
+Calculation converged for this set of angles. Area: 123.777 Estimated Error: 9.27382
+Projecting at angles: 0.471239 0.349066
+Calculation converged for this set of angles. Area: 125.773 Estimated Error: 9.31533
+Projecting at angles: 0.471239 0.698132
+Calculation converged for this set of angles. Area: 101.817 Estimated Error: 8.7307
+Projecting at angles: 0.471239 1.0472
+Calculation converged for this set of angles. Area: 110.8 Estimated Error: 8.9728
+Projecting at angles: 0.471239 1.39626
+Calculation converged for this set of angles. Area: 122.779 Estimated Error: 9.25259
+Projecting at angles: 0.471239 1.74533
+Calculation converged for this set of angles. Area: 121.781 Estimated Error: 9.23106
+Projecting at angles: 0.471239 2.0944
+Calculation converged for this set of angles. Area: 131.763 Estimated Error: 9.43257
+Projecting at angles: 0.471239 2.44346
+Calculation converged for this set of angles. Area: 98.822 Estimated Error: 8.64341
+Projecting at angles: 0.471239 2.79253
+Calculation converged for this set of angles. Area: 136.754 Estimated Error: 9.52211
+Projecting at angles: 0.471239 3.14159
+Calculation converged for this set of angles. Area: 113.795 Estimated Error: 9.04721
+Projecting at angles: 0.471239 3.49066
+Calculation converged for this set of angles. Area: 104.811 Estimated Error: 8.81464
+Projecting at angles: 0.471239 3.83972
+Calculation converged for this set of angles. Area: 112.797 Estimated Error: 9.02274
+Projecting at angles: 0.471239 4.18879
+Calculation converged for this set of angles. Area: 121.781 Estimated Error: 9.23106
+Projecting at angles: 0.471239 4.53786
+Calculation converged for this set of angles. Area: 119.784 Estimated Error: 9.18703
+Projecting at angles: 0.471239 4.88692
+Calculation converged for this set of angles. Area: 131.763 Estimated Error: 9.43257
+Projecting at angles: 0.471239 5.23599
+Calculation converged for this set of angles. Area: 131.763 Estimated Error: 9.43257
+Projecting at angles: 0.471239 5.58505
+Calculation converged for this set of angles. Area: 128.768 Estimated Error: 9.3753
+Projecting at angles: 0.471239 5.93412
+Calculation converged for this set of angles. Area: 131.763 Estimated Error: 9.43257
+Projecting at angles: 0.471239 6.28319
+Calculation converged for this set of angles. Area: 107.806 Estimated Error: 8.89531
+Projecting at angles: 0.628319 0.273182
+Calculation converged for this set of angles. Area: 111.799 Estimated Error: 8.99794
+Projecting at angles: 0.628319 0.546364
+Calculation converged for this set of angles. Area: 112.797 Estimated Error: 9.02274
+Projecting at angles: 0.628319 0.819546
+Calculation converged for this set of angles. Area: 122.779 Estimated Error: 9.25259
+Projecting at angles: 0.628319 1.09273
+Calculation converged for this set of angles. Area: 104.811 Estimated Error: 8.81464
+Projecting at angles: 0.628319 1.36591
+Calculation converged for this set of angles. Area: 119.784 Estimated Error: 9.18703
+Projecting at angles: 0.628319 1.63909
+Calculation converged for this set of angles. Area: 119.784 Estimated Error: 9.18703
+Projecting at angles: 0.628319 1.91227
+Calculation converged for this set of angles. Area: 118.786 Estimated Error: 9.16454
+Projecting at angles: 0.628319 2.18546
+Calculation converged for this set of angles. Area: 127.77 Estimated Error: 9.35562
+Projecting at angles: 0.628319 2.45864
+Calculation converged for this set of angles. Area: 133.759 Estimated Error: 9.46926
+Projecting at angles: 0.628319 2.73182
+Calculation converged for this set of angles. Area: 120.782 Estimated Error: 9.2092
+Projecting at angles: 0.628319 3.005
+Calculation converged for this set of angles. Area: 127.77 Estimated Error: 9.35562
+Projecting at angles: 0.628319 3.27818
+Calculation converged for this set of angles. Area: 140.746 Estimated Error: 9.58856
+Projecting at angles: 0.628319 3.55137
+Calculation converged for this set of angles. Area: 134.757 Estimated Error: 9.48717
+Projecting at angles: 0.628319 3.82455
+Calculation converged for this set of angles. Area: 110.8 Estimated Error: 8.9728
+Projecting at angles: 0.628319 4.09773
+Calculation converged for this set of angles. Area: 106.808 Estimated Error: 8.86877
+Projecting at angles: 0.628319 4.37091
+Calculation converged for this set of angles. Area: 106.808 Estimated Error: 8.86877
+Projecting at angles: 0.628319 4.64409
+Calculation converged for this set of angles. Area: 116.79 Estimated Error: 9.11859
+Projecting at angles: 0.628319 4.91728
+Calculation converged for this set of angles. Area: 126.772 Estimated Error: 9.33562
+Projecting at angles: 0.628319 5.19046
+Calculation converged for this set of angles. Area: 133.759 Estimated Error: 9.46926
+Projecting at angles: 0.628319 5.46364
+Calculation converged for this set of angles. Area: 124.775 Estimated Error: 9.29473
+Projecting at angles: 0.628319 5.73682
+Calculation converged for this set of angles. Area: 127.77 Estimated Error: 9.35562
+Projecting at angles: 0.628319 6.01
+Calculation converged for this set of angles. Area: 120.782 Estimated Error: 9.2092
+Projecting at angles: 0.628319 6.28319
+Calculation converged for this set of angles. Area: 117.788 Estimated Error: 9.14173
+Projecting at angles: 0.785398 0.224399
+Calculation converged for this set of angles. Area: 115.791 Estimated Error: 9.09513
+Projecting at angles: 0.785398 0.448799
+Calculation converged for this set of angles. Area: 116.79 Estimated Error: 9.11859
+Projecting at angles: 0.785398 0.673198
+Calculation converged for this set of angles. Area: 131.763 Estimated Error: 9.43257
+Projecting at angles: 0.785398 0.897598
+Calculation converged for this set of angles. Area: 117.788 Estimated Error: 9.14173
+Projecting at angles: 0.785398 1.122
+Calculation converged for this set of angles. Area: 98.822 Estimated Error: 8.64341
+Projecting at angles: 0.785398 1.3464
+Calculation converged for this set of angles. Area: 115.791 Estimated Error: 9.09513
+Projecting at angles: 0.785398 1.5708
+Calculation converged for this set of angles. Area: 128.768 Estimated Error: 9.3753
+Projecting at angles: 0.785398 1.7952
+Calculation converged for this set of angles. Area: 117.788 Estimated Error: 9.14173
+Projecting at angles: 0.785398 2.0196
+Calculation converged for this set of angles. Area: 126.772 Estimated Error: 9.33562
+Projecting at angles: 0.785398 2.24399
+Calculation converged for this set of angles. Area: 143.741 Estimated Error: 9.63544
+Projecting at angles: 0.785398 2.46839
+Calculation converged for this set of angles. Area: 121.781 Estimated Error: 9.23106
+Projecting at angles: 0.785398 2.69279
+Calculation converged for this set of angles. Area: 121.781 Estimated Error: 9.23106
+Projecting at angles: 0.785398 2.91719
+Calculation converged for this set of angles. Area: 118.786 Estimated Error: 9.16454
+Projecting at angles: 0.785398 3.14159
+Calculation converged for this set of angles. Area: 135.755 Estimated Error: 9.50478
+Projecting at angles: 0.785398 3.36599
+Calculation converged for this set of angles. Area: 118.786 Estimated Error: 9.16454
+Projecting at angles: 0.785398 3.59039
+Calculation converged for this set of angles. Area: 114.793 Estimated Error: 9.07133
+Projecting at angles: 0.785398 3.81479
+Calculation converged for this set of angles. Area: 118.786 Estimated Error: 9.16454
+Projecting at angles: 0.785398 4.03919
+Calculation converged for this set of angles. Area: 107.806 Estimated Error: 8.89531
+Projecting at angles: 0.785398 4.26359
+Calculation converged for this set of angles. Area: 125.773 Estimated Error: 9.31533
+Projecting at angles: 0.785398 4.48799
+Calculation converged for this set of angles. Area: 115.791 Estimated Error: 9.09513
+Projecting at angles: 0.785398 4.71239
+Calculation converged for this set of angles. Area: 118.786 Estimated Error: 9.16454
+Projecting at angles: 0.785398 4.93679
+Calculation converged for this set of angles. Area: 117.788 Estimated Error: 9.14173
+Projecting at angles: 0.785398 5.16119
+Calculation converged for this set of angles. Area: 142.743 Estimated Error: 9.62009
+Projecting at angles: 0.785398 5.38559
+Calculation converged for this set of angles. Area: 144.739 Estimated Error: 9.65051
+Projecting at angles: 0.785398 5.60999
+Calculation converged for this set of angles. Area: 124.775 Estimated Error: 9.29473
+Projecting at angles: 0.785398 5.83439
+Calculation converged for this set of angles. Area: 117.788 Estimated Error: 9.14173
+Projecting at angles: 0.785398 6.05879
+Calculation converged for this set of angles. Area: 138.75 Estimated Error: 9.55591
+Projecting at angles: 0.785398 6.28319
+Calculation converged for this set of angles. Area: 124.775 Estimated Error: 9.29473
+Projecting at angles: 0.942478 0.19635
+Calculation converged for this set of angles. Area: 133.759 Estimated Error: 9.46926
+Projecting at angles: 0.942478 0.392699
+Calculation converged for this set of angles. Area: 118.786 Estimated Error: 9.16454
+Projecting at angles: 0.942478 0.589049
+Calculation converged for this set of angles. Area: 103.813 Estimated Error: 8.78702
+Projecting at angles: 0.942478 0.785398
+Calculation converged for this set of angles. Area: 116.79 Estimated Error: 9.11859
+Projecting at angles: 0.942478 0.981748
+Calculation converged for this set of angles. Area: 106.808 Estimated Error: 8.86877
+Projecting at angles: 0.942478 1.1781
+Calculation converged for this set of angles. Area: 121.781 Estimated Error: 9.23106
+Projecting at angles: 0.942478 1.37445
+Calculation converged for this set of angles. Area: 127.77 Estimated Error: 9.35562
+Projecting at angles: 0.942478 1.5708
+Calculation converged for this set of angles. Area: 128.768 Estimated Error: 9.3753
+Projecting at angles: 0.942478 1.76715
+Calculation converged for this set of angles. Area: 129.766 Estimated Error: 9.39469
+Projecting at angles: 0.942478 1.9635
+Calculation converged for this set of angles. Area: 125.773 Estimated Error: 9.31533
+Projecting at angles: 0.942478 2.15984
+Calculation converged for this set of angles. Area: 143.741 Estimated Error: 9.63544
+Projecting at angles: 0.942478 2.35619
+Calculation converged for this set of angles. Area: 161.709 Estimated Error: 9.86537
+Projecting at angles: 0.942478 2.55254
+Calculation converged for this set of angles. Area: 134.757 Estimated Error: 9.48717
+Projecting at angles: 0.942478 2.74889
+Calculation converged for this set of angles. Area: 147.734 Estimated Error: 9.69407
+Projecting at angles: 0.942478 2.94524
+Calculation converged for this set of angles. Area: 132.761 Estimated Error: 9.45106
+Projecting at angles: 0.942478 3.14159
+Calculation converged for this set of angles. Area: 124.775 Estimated Error: 9.29473
+Projecting at angles: 0.942478 3.33794
+Calculation converged for this set of angles. Area: 117.788 Estimated Error: 9.14173
+Projecting at angles: 0.942478 3.53429
+Calculation converged for this set of angles. Area: 124.775 Estimated Error: 9.29473
+Projecting at angles: 0.942478 3.73064
+Calculation converged for this set of angles. Area: 115.791 Estimated Error: 9.09513
+Projecting at angles: 0.942478 3.92699
+Calculation converged for this set of angles. Area: 126.772 Estimated Error: 9.33562
+Projecting at angles: 0.942478 4.12334
+Calculation converged for this set of angles. Area: 117.788 Estimated Error: 9.14173
+Projecting at angles: 0.942478 4.31969
+Calculation converged for this set of angles. Area: 115.791 Estimated Error: 9.09513
+Projecting at angles: 0.942478 4.51604
+Calculation converged for this set of angles. Area: 118.786 Estimated Error: 9.16454
+Projecting at angles: 0.942478 4.71239
+Calculation converged for this set of angles. Area: 122.779 Estimated Error: 9.25259
+Projecting at angles: 0.942478 4.90874
+Calculation converged for this set of angles. Area: 116.79 Estimated Error: 9.11859
+Projecting at angles: 0.942478 5.10509
+Calculation converged for this set of angles. Area: 147.734 Estimated Error: 9.69407
+Projecting at angles: 0.942478 5.30144
+Calculation converged for this set of angles. Area: 128.768 Estimated Error: 9.3753
+Projecting at angles: 0.942478 5.49779
+Calculation converged for this set of angles. Area: 141.745 Estimated Error: 9.60447
+Projecting at angles: 0.942478 5.69414
+Calculation converged for this set of angles. Area: 135.755 Estimated Error: 9.50478
+Projecting at angles: 0.942478 5.89049
+Calculation converged for this set of angles. Area: 117.788 Estimated Error: 9.14173
+Projecting at angles: 0.942478 6.08684
+Calculation converged for this set of angles. Area: 128.768 Estimated Error: 9.3753
+Projecting at angles: 0.942478 6.28319
+Calculation converged for this set of angles. Area: 120.782 Estimated Error: 9.2092
+Projecting at angles: 1.09956 0.17952
+Calculation converged for this set of angles. Area: 125.773 Estimated Error: 9.31533
+Projecting at angles: 1.09956 0.359039
+Calculation converged for this set of angles. Area: 122.779 Estimated Error: 9.25259
+Projecting at angles: 1.09956 0.538559
+Calculation converged for this set of angles. Area: 127.77 Estimated Error: 9.35562
+Projecting at angles: 1.09956 0.718078
+Calculation converged for this set of angles. Area: 115.791 Estimated Error: 9.09513
+Projecting at angles: 1.09956 0.897598
+Calculation converged for this set of angles. Area: 101.817 Estimated Error: 8.7307
+Projecting at angles: 1.09956 1.07712
+Calculation converged for this set of angles. Area: 114.793 Estimated Error: 9.07133
+Projecting at angles: 1.09956 1.25664
+Calculation converged for this set of angles. Area: 138.75 Estimated Error: 9.55591
+Projecting at angles: 1.09956 1.43616
+Calculation converged for this set of angles. Area: 118.786 Estimated Error: 9.16454
+Projecting at angles: 1.09956 1.61568
+Calculation converged for this set of angles. Area: 112.797 Estimated Error: 9.02274
+Projecting at angles: 1.09956 1.7952
+Calculation converged for this set of angles. Area: 132.761 Estimated Error: 9.45106
+Projecting at angles: 1.09956 1.97472
+Calculation converged for this set of angles. Area: 133.759 Estimated Error: 9.46926
+Projecting at angles: 1.09956 2.15423
+Calculation converged for this set of angles. Area: 124.775 Estimated Error: 9.29473
+Projecting at angles: 1.09956 2.33375
+Calculation converged for this set of angles. Area: 138.75 Estimated Error: 9.55591
+Projecting at angles: 1.09956 2.51327
+Calculation converged for this set of angles. Area: 149.73 Estimated Error: 9.72174
+Projecting at angles: 1.09956 2.69279
+Calculation converged for this set of angles. Area: 139.748 Estimated Error: 9.57238
+Projecting at angles: 1.09956 2.87231
+Calculation converged for this set of angles. Area: 127.77 Estimated Error: 9.35562
+Projecting at angles: 1.09956 3.05183
+Calculation converged for this set of angles. Area: 127.77 Estimated Error: 9.35562
+Projecting at angles: 1.09956 3.23135
+Calculation converged for this set of angles. Area: 141.745 Estimated Error: 9.60447
+Projecting at angles: 1.09956 3.41087
+Calculation converged for this set of angles. Area: 115.791 Estimated Error: 9.09513
+Projecting at angles: 1.09956 3.59039
+Calculation converged for this set of angles. Area: 140.746 Estimated Error: 9.58856
+Projecting at angles: 1.09956 3.76991
+Calculation converged for this set of angles. Area: 122.779 Estimated Error: 9.25259
+Projecting at angles: 1.09956 3.94943
+Calculation converged for this set of angles. Area: 121.781 Estimated Error: 9.23106
+Projecting at angles: 1.09956 4.12895
+Calculation converged for this set of angles. Area: 122.779 Estimated Error: 9.25259
+Projecting at angles: 1.09956 4.30847
+Calculation converged for this set of angles. Area: 129.766 Estimated Error: 9.39469
+Projecting at angles: 1.09956 4.48799
+Calculation converged for this set of angles. Area: 118.786 Estimated Error: 9.16454
+Projecting at angles: 1.09956 4.66751
+Calculation converged for this set of angles. Area: 119.784 Estimated Error: 9.18703
+Projecting at angles: 1.09956 4.84703
+Calculation converged for this set of angles. Area: 124.775 Estimated Error: 9.29473
+Projecting at angles: 1.09956 5.02655
+Calculation converged for this set of angles. Area: 111.799 Estimated Error: 8.99794
+Projecting at angles: 1.09956 5.20607
+Calculation converged for this set of angles. Area: 147.734 Estimated Error: 9.69407
+Projecting at angles: 1.09956 5.38559
+Calculation converged for this set of angles. Area: 115.791 Estimated Error: 9.09513
+Projecting at angles: 1.09956 5.56511
+Calculation converged for this set of angles. Area: 136.754 Estimated Error: 9.52211
+Projecting at angles: 1.09956 5.74463
+Calculation converged for this set of angles. Area: 126.772 Estimated Error: 9.33562
+Projecting at angles: 1.09956 5.92415
+Calculation converged for this set of angles. Area: 126.772 Estimated Error: 9.33562
+Projecting at angles: 1.09956 6.10367
+Calculation converged for this set of angles. Area: 121.781 Estimated Error: 9.23106
+Projecting at angles: 1.09956 6.28319
+Calculation converged for this set of angles. Area: 128.768 Estimated Error: 9.3753
+Projecting at angles: 1.25664 0.165347
+Calculation converged for this set of angles. Area: 129.766 Estimated Error: 9.39469
+Projecting at angles: 1.25664 0.330694
+Calculation converged for this set of angles. Area: 125.773 Estimated Error: 9.31533
+Projecting at angles: 1.25664 0.496041
+Calculation converged for this set of angles. Area: 122.779 Estimated Error: 9.25259
+Projecting at angles: 1.25664 0.661388
+Calculation converged for this set of angles. Area: 116.79 Estimated Error: 9.11859
+Projecting at angles: 1.25664 0.826735
+Calculation converged for this set of angles. Area: 126.772 Estimated Error: 9.33562
+Projecting at angles: 1.25664 0.992082
+Calculation converged for this set of angles. Area: 110.8 Estimated Error: 8.9728
+Projecting at angles: 1.25664 1.15743
+Calculation converged for this set of angles. Area: 125.773 Estimated Error: 9.31533
+Projecting at angles: 1.25664 1.32278
+Calculation converged for this set of angles. Area: 123.777 Estimated Error: 9.27382
+Projecting at angles: 1.25664 1.48812
+Calculation converged for this set of angles. Area: 124.775 Estimated Error: 9.29473
+Projecting at angles: 1.25664 1.65347
+Calculation converged for this set of angles. Area: 110.8 Estimated Error: 8.9728
+Projecting at angles: 1.25664 1.81882
+Calculation converged for this set of angles. Area: 128.768 Estimated Error: 9.3753
+Projecting at angles: 1.25664 1.98416
+Calculation converged for this set of angles. Area: 131.763 Estimated Error: 9.43257
+Projecting at angles: 1.25664 2.14951
+Calculation converged for this set of angles. Area: 127.77 Estimated Error: 9.35562
+Projecting at angles: 1.25664 2.31486
+Calculation converged for this set of angles. Area: 127.77 Estimated Error: 9.35562
+Projecting at angles: 1.25664 2.4802
+Calculation converged for this set of angles. Area: 121.781 Estimated Error: 9.23106
+Projecting at angles: 1.25664 2.64555
+Calculation converged for this set of angles. Area: 149.73 Estimated Error: 9.72174
+Projecting at angles: 1.25664 2.8109
+Calculation converged for this set of angles. Area: 124.775 Estimated Error: 9.29473
+Projecting at angles: 1.25664 2.97625
+Calculation converged for this set of angles. Area: 132.761 Estimated Error: 9.45106
+Projecting at angles: 1.25664 3.14159
+Calculation converged for this set of angles. Area: 134.757 Estimated Error: 9.48717
+Projecting at angles: 1.25664 3.30694
+Calculation converged for this set of angles. Area: 127.77 Estimated Error: 9.35562
+Projecting at angles: 1.25664 3.47229
+Calculation converged for this set of angles. Area: 129.766 Estimated Error: 9.39469
+Projecting at angles: 1.25664 3.63763
+Calculation converged for this set of angles. Area: 117.788 Estimated Error: 9.14173
+Projecting at angles: 1.25664 3.80298
+Calculation converged for this set of angles. Area: 111.799 Estimated Error: 8.99794
+Projecting at angles: 1.25664 3.96833
+Calculation converged for this set of angles. Area: 116.79 Estimated Error: 9.11859
+Projecting at angles: 1.25664 4.13367
+Calculation converged for this set of angles. Area: 108.804 Estimated Error: 8.92149
+Projecting at angles: 1.25664 4.29902
+Calculation converged for this set of angles. Area: 118.786 Estimated Error: 9.16454
+Projecting at angles: 1.25664 4.46437
+Calculation converged for this set of angles. Area: 110.8 Estimated Error: 8.9728
+Projecting at angles: 1.25664 4.62972
+Calculation converged for this set of angles. Area: 115.791 Estimated Error: 9.09513
+Projecting at angles: 1.25664 4.79506
+Calculation converged for this set of angles. Area: 120.782 Estimated Error: 9.2092
+Projecting at angles: 1.25664 4.96041
+Calculation converged for this set of angles. Area: 125.773 Estimated Error: 9.31533
+Projecting at angles: 1.25664 5.12576
+Calculation converged for this set of angles. Area: 139.748 Estimated Error: 9.57238
+Projecting at angles: 1.25664 5.2911
+Calculation converged for this set of angles. Area: 151.727 Estimated Error: 9.74833
+Projecting at angles: 1.25664 5.45645
+Calculation converged for this set of angles. Area: 126.772 Estimated Error: 9.33562
+Projecting at angles: 1.25664 5.6218
+Calculation converged for this set of angles. Area: 135.755 Estimated Error: 9.50478
+Projecting at angles: 1.25664 5.78714
+Calculation converged for this set of angles. Area: 134.757 Estimated Error: 9.48717
+Projecting at angles: 1.25664 5.95249
+Calculation converged for this set of angles. Area: 133.759 Estimated Error: 9.46926
+Projecting at angles: 1.25664 6.11784
+Calculation converged for this set of angles. Area: 129.766 Estimated Error: 9.39469
+Projecting at angles: 1.25664 6.28319
+Calculation converged for this set of angles. Area: 136.754 Estimated Error: 9.52211
+Projecting at angles: 1.41372 0.161107
+Calculation converged for this set of angles. Area: 128.768 Estimated Error: 9.3753
+Projecting at angles: 1.41372 0.322215
+Calculation converged for this set of angles. Area: 124.775 Estimated Error: 9.29473
+Projecting at angles: 1.41372 0.483322
+Calculation converged for this set of angles. Area: 137.752 Estimated Error: 9.53915
+Projecting at angles: 1.41372 0.644429
+Calculation converged for this set of angles. Area: 124.775 Estimated Error: 9.29473
+Projecting at angles: 1.41372 0.805537
+Calculation converged for this set of angles. Area: 115.791 Estimated Error: 9.09513
+Projecting at angles: 1.41372 0.966644
+Calculation converged for this set of angles. Area: 104.811 Estimated Error: 8.81464
+Projecting at angles: 1.41372 1.12775
+Calculation converged for this set of angles. Area: 116.79 Estimated Error: 9.11859
+Projecting at angles: 1.41372 1.28886
+Calculation converged for this set of angles. Area: 125.773 Estimated Error: 9.31533
+Projecting at angles: 1.41372 1.44997
+Calculation converged for this set of angles. Area: 119.784 Estimated Error: 9.18703
+Projecting at angles: 1.41372 1.61107
+Calculation converged for this set of angles. Area: 119.784 Estimated Error: 9.18703
+Projecting at angles: 1.41372 1.77218
+Calculation converged for this set of angles. Area: 114.793 Estimated Error: 9.07133
+Projecting at angles: 1.41372 1.93329
+Calculation converged for this set of angles. Area: 135.755 Estimated Error: 9.50478
+Projecting at angles: 1.41372 2.0944
+Calculation converged for this set of angles. Area: 133.759 Estimated Error: 9.46926
+Projecting at angles: 1.41372 2.2555
+Calculation converged for this set of angles. Area: 134.757 Estimated Error: 9.48717
+Projecting at angles: 1.41372 2.41661
+Calculation converged for this set of angles. Area: 113.795 Estimated Error: 9.04721
+Projecting at angles: 1.41372 2.57772
+Calculation converged for this set of angles. Area: 112.797 Estimated Error: 9.02274
+Projecting at angles: 1.41372 2.73882
+Calculation converged for this set of angles. Area: 121.781 Estimated Error: 9.23106
+Projecting at angles: 1.41372 2.89993
+Calculation converged for this set of angles. Area: 134.757 Estimated Error: 9.48717
+Projecting at angles: 1.41372 3.06104
+Calculation converged for this set of angles. Area: 121.781 Estimated Error: 9.23106
+Projecting at angles: 1.41372 3.22215
+Calculation converged for this set of angles. Area: 130.764 Estimated Error: 9.41378
+Projecting at angles: 1.41372 3.38325
+Calculation converged for this set of angles. Area: 123.777 Estimated Error: 9.27382
+Projecting at angles: 1.41372 3.54436
+Calculation converged for this set of angles. Area: 130.764 Estimated Error: 9.41378
+Projecting at angles: 1.41372 3.70547
+Calculation converged for this set of angles. Area: 108.804 Estimated Error: 8.92149
+Projecting at angles: 1.41372 3.86658
+Calculation converged for this set of angles. Area: 113.795 Estimated Error: 9.04721
+Projecting at angles: 1.41372 4.02768
+Calculation converged for this set of angles. Area: 122.779 Estimated Error: 9.25259
+Projecting at angles: 1.41372 4.18879
+Calculation converged for this set of angles. Area: 127.77 Estimated Error: 9.35562
+Projecting at angles: 1.41372 4.3499
+Calculation converged for this set of angles. Area: 134.757 Estimated Error: 9.48717
+Projecting at angles: 1.41372 4.511
+Calculation converged for this set of angles. Area: 113.795 Estimated Error: 9.04721
+Projecting at angles: 1.41372 4.67211
+Calculation converged for this set of angles. Area: 129.766 Estimated Error: 9.39469
+Projecting at angles: 1.41372 4.83322
+Calculation converged for this set of angles. Area: 121.781 Estimated Error: 9.23106
+Projecting at angles: 1.41372 4.99433
+Calculation converged for this set of angles. Area: 119.784 Estimated Error: 9.18703
+Projecting at angles: 1.41372 5.15543
+Calculation converged for this set of angles. Area: 146.736 Estimated Error: 9.67982
+Projecting at angles: 1.41372 5.31654
+Calculation converged for this set of angles. Area: 125.773 Estimated Error: 9.31533
+Projecting at angles: 1.41372 5.47765
+Calculation converged for this set of angles. Area: 124.775 Estimated Error: 9.29473
+Projecting at angles: 1.41372 5.63876
+Calculation converged for this set of angles. Area: 141.745 Estimated Error: 9.60447
+Projecting at angles: 1.41372 5.79986
+Calculation converged for this set of angles. Area: 115.791 Estimated Error: 9.09513
+Projecting at angles: 1.41372 5.96097
+Calculation converged for this set of angles. Area: 119.784 Estimated Error: 9.18703
+Projecting at angles: 1.41372 6.12208
+Calculation converged for this set of angles. Area: 128.768 Estimated Error: 9.3753
+Projecting at angles: 1.41372 6.28319
+Calculation converged for this set of angles. Area: 137.752 Estimated Error: 9.53915
+Projecting at angles: 1.5708 0.161107
+Calculation converged for this set of angles. Area: 112.797 Estimated Error: 9.02274
+Projecting at angles: 1.5708 0.322215
+Calculation converged for this set of angles. Area: 114.793 Estimated Error: 9.07133
+Projecting at angles: 1.5708 0.483322
+Calculation converged for this set of angles. Area: 119.784 Estimated Error: 9.18703
+Projecting at angles: 1.5708 0.644429
+Calculation converged for this set of angles. Area: 122.779 Estimated Error: 9.25259
+Projecting at angles: 1.5708 0.805537
+Calculation converged for this set of angles. Area: 131.763 Estimated Error: 9.43257
+Projecting at angles: 1.5708 0.966644
+Calculation converged for this set of angles. Area: 132.761 Estimated Error: 9.45106
+Projecting at angles: 1.5708 1.12775
+Calculation converged for this set of angles. Area: 119.784 Estimated Error: 9.18703
+Projecting at angles: 1.5708 1.28886
+Calculation converged for this set of angles. Area: 141.745 Estimated Error: 9.60447
+Projecting at angles: 1.5708 1.44997
+Calculation converged for this set of angles. Area: 133.759 Estimated Error: 9.46926
+Projecting at angles: 1.5708 1.61107
+Calculation converged for this set of angles. Area: 127.77 Estimated Error: 9.35562
+Projecting at angles: 1.5708 1.77218
+Calculation converged for this set of angles. Area: 141.745 Estimated Error: 9.60447
+Projecting at angles: 1.5708 1.93329
+Calculation converged for this set of angles. Area: 104.811 Estimated Error: 8.81464
+Projecting at angles: 1.5708 2.0944
+Calculation converged for this set of angles. Area: 113.795 Estimated Error: 9.04721
+Projecting at angles: 1.5708 2.2555
+Calculation converged for this set of angles. Area: 129.766 Estimated Error: 9.39469
+Projecting at angles: 1.5708 2.41661
+Calculation converged for this set of angles. Area: 125.773 Estimated Error: 9.31533
+Projecting at angles: 1.5708 2.57772
+Calculation converged for this set of angles. Area: 115.791 Estimated Error: 9.09513
+Projecting at angles: 1.5708 2.73882
+Calculation converged for this set of angles. Area: 120.782 Estimated Error: 9.2092
+Projecting at angles: 1.5708 2.89993
+Calculation converged for this set of angles. Area: 126.772 Estimated Error: 9.33562
+Projecting at angles: 1.5708 3.06104
+Calculation converged for this set of angles. Area: 120.782 Estimated Error: 9.2092
+Projecting at angles: 1.5708 3.22215
+Calculation converged for this set of angles. Area: 123.777 Estimated Error: 9.27382
+Projecting at angles: 1.5708 3.38325
+Calculation converged for this set of angles. Area: 130.764 Estimated Error: 9.41378
+Projecting at angles: 1.5708 3.54436
+Calculation converged for this set of angles. Area: 132.761 Estimated Error: 9.45106
+Projecting at angles: 1.5708 3.70547
+Calculation converged for this set of angles. Area: 105.809 Estimated Error: 8.84188
+Projecting at angles: 1.5708 3.86658
+Calculation converged for this set of angles. Area: 124.775 Estimated Error: 9.29473
+Projecting at angles: 1.5708 4.02768
+Calculation converged for this set of angles. Area: 120.782 Estimated Error: 9.2092
+Projecting at angles: 1.5708 4.18879
+Calculation converged for this set of angles. Area: 116.79 Estimated Error: 9.11859
+Projecting at angles: 1.5708 4.3499
+Calculation converged for this set of angles. Area: 118.786 Estimated Error: 9.16454
+Projecting at angles: 1.5708 4.511
+Calculation converged for this set of angles. Area: 120.782 Estimated Error: 9.2092
+Projecting at angles: 1.5708 4.67211
+Calculation converged for this set of angles. Area: 127.77 Estimated Error: 9.35562
+Projecting at angles: 1.5708 4.83322
+Calculation converged for this set of angles. Area: 131.763 Estimated Error: 9.43257
+Projecting at angles: 1.5708 4.99433
+Calculation converged for this set of angles. Area: 134.757 Estimated Error: 9.48717
+Projecting at angles: 1.5708 5.15543
+Calculation converged for this set of angles. Area: 134.757 Estimated Error: 9.48717
+Projecting at angles: 1.5708 5.31654
+Calculation converged for this set of angles. Area: 119.784 Estimated Error: 9.18703
+Projecting at angles: 1.5708 5.47765
+Calculation converged for this set of angles. Area: 125.773 Estimated Error: 9.31533
+Projecting at angles: 1.5708 5.63876
+Calculation converged for this set of angles. Area: 133.759 Estimated Error: 9.46926
+Projecting at angles: 1.5708 5.79986
+Calculation converged for this set of angles. Area: 117.788 Estimated Error: 9.14173
+Projecting at angles: 1.5708 5.96097
+Calculation converged for this set of angles. Area: 137.752 Estimated Error: 9.53915
+Projecting at angles: 1.5708 6.12208
+Calculation converged for this set of angles. Area: 131.763 Estimated Error: 9.43257
+Projecting at angles: 1.5708 6.28319
+Calculation converged for this set of angles. Area: 106.808 Estimated Error: 8.86877
+Projecting at angles: 1.72788 0.161107
+Calculation converged for this set of angles. Area: 89.8382 Estimated Error: 8.36033
+Projecting at angles: 1.72788 0.322215
+Calculation converged for this set of angles. Area: 129.766 Estimated Error: 9.39469
+Projecting at angles: 1.72788 0.483322
+Calculation converged for this set of angles. Area: 115.791 Estimated Error: 9.09513
+Projecting at angles: 1.72788 0.644429
+Calculation converged for this set of angles. Area: 105.809 Estimated Error: 8.84188
+Projecting at angles: 1.72788 0.805537
+Calculation converged for this set of angles. Area: 141.745 Estimated Error: 9.60447
+Projecting at angles: 1.72788 0.966644
+Calculation converged for this set of angles. Area: 126.772 Estimated Error: 9.33562
+Projecting at angles: 1.72788 1.12775
+Calculation converged for this set of angles. Area: 122.779 Estimated Error: 9.25259
+Projecting at angles: 1.72788 1.28886
+Calculation converged for this set of angles. Area: 123.777 Estimated Error: 9.27382
+Projecting at angles: 1.72788 1.44997
+Calculation converged for this set of angles. Area: 129.766 Estimated Error: 9.39469
+Projecting at angles: 1.72788 1.61107
+Calculation converged for this set of angles. Area: 121.781 Estimated Error: 9.23106
+Projecting at angles: 1.72788 1.77218
+Calculation converged for this set of angles. Area: 135.755 Estimated Error: 9.50478
+Projecting at angles: 1.72788 1.93329
+Calculation converged for this set of angles. Area: 110.8 Estimated Error: 8.9728
+Projecting at angles: 1.72788 2.0944
+Calculation converged for this set of angles. Area: 117.788 Estimated Error: 9.14173
+Projecting at angles: 1.72788 2.2555
+Calculation converged for this set of angles. Area: 128.768 Estimated Error: 9.3753
+Projecting at angles: 1.72788 2.41661
+Calculation converged for this set of angles. Area: 113.795 Estimated Error: 9.04721
+Projecting at angles: 1.72788 2.57772
+Calculation converged for this set of angles. Area: 115.791 Estimated Error: 9.09513
+Projecting at angles: 1.72788 2.73882
+Calculation converged for this set of angles. Area: 143.741 Estimated Error: 9.63544
+Projecting at angles: 1.72788 2.89993
+Calculation converged for this set of angles. Area: 116.79 Estimated Error: 9.11859
+Projecting at angles: 1.72788 3.06104
+Calculation converged for this set of angles. Area: 122.779 Estimated Error: 9.25259
+Projecting at angles: 1.72788 3.22215
+Calculation converged for this set of angles. Area: 122.779 Estimated Error: 9.25259
+Projecting at angles: 1.72788 3.38325
+Calculation converged for this set of angles. Area: 118.786 Estimated Error: 9.16454
+Projecting at angles: 1.72788 3.54436
+Calculation converged for this set of angles. Area: 121.781 Estimated Error: 9.23106
+Projecting at angles: 1.72788 3.70547
+Calculation converged for this set of angles. Area: 150.729 Estimated Error: 9.73517
+Projecting at angles: 1.72788 3.86658
+Calculation converged for this set of angles. Area: 123.777 Estimated Error: 9.27382
+Projecting at angles: 1.72788 4.02768
+Calculation converged for this set of angles. Area: 112.797 Estimated Error: 9.02274
+Projecting at angles: 1.72788 4.18879
+Calculation converged for this set of angles. Area: 107.806 Estimated Error: 8.89531
+Projecting at angles: 1.72788 4.3499
+Calculation converged for this set of angles. Area: 120.782 Estimated Error: 9.2092
+Projecting at angles: 1.72788 4.511
+Calculation converged for this set of angles. Area: 135.755 Estimated Error: 9.50478
+Projecting at angles: 1.72788 4.67211
+Calculation converged for this set of angles. Area: 128.768 Estimated Error: 9.3753
+Projecting at angles: 1.72788 4.83322
+Calculation converged for this set of angles. Area: 128.768 Estimated Error: 9.3753
+Projecting at angles: 1.72788 4.99433
+Calculation converged for this set of angles. Area: 114.793 Estimated Error: 9.07133
+Projecting at angles: 1.72788 5.15543
+Calculation converged for this set of angles. Area: 137.752 Estimated Error: 9.53915
+Projecting at angles: 1.72788 5.31654
+Calculation converged for this set of angles. Area: 120.782 Estimated Error: 9.2092
+Projecting at angles: 1.72788 5.47765
+Calculation converged for this set of angles. Area: 136.754 Estimated Error: 9.52211
+Projecting at angles: 1.72788 5.63876
+Calculation converged for this set of angles. Area: 120.782 Estimated Error: 9.2092
+Projecting at angles: 1.72788 5.79986
+Calculation converged for this set of angles. Area: 136.754 Estimated Error: 9.52211
+Projecting at angles: 1.72788 5.96097
+Calculation converged for this set of angles. Area: 126.772 Estimated Error: 9.33562
+Projecting at angles: 1.72788 6.12208
+Calculation converged for this set of angles. Area: 112.797 Estimated Error: 9.02274
+Projecting at angles: 1.72788 6.28319
+Calculation converged for this set of angles. Area: 124.775 Estimated Error: 9.29473
+Projecting at angles: 1.88496 0.165347
+Calculation converged for this set of angles. Area: 113.795 Estimated Error: 9.04721
+Projecting at angles: 1.88496 0.330694
+Calculation converged for this set of angles. Area: 113.795 Estimated Error: 9.04721
+Projecting at angles: 1.88496 0.496041
+Calculation converged for this set of angles. Area: 104.811 Estimated Error: 8.81464
+Projecting at angles: 1.88496 0.661388
+Calculation converged for this set of angles. Area: 107.806 Estimated Error: 8.89531
+Projecting at angles: 1.88496 0.826735
+Calculation converged for this set of angles. Area: 104.811 Estimated Error: 8.81464
+Projecting at angles: 1.88496 0.992082
+Calculation converged for this set of angles. Area: 124.775 Estimated Error: 9.29473
+Projecting at angles: 1.88496 1.15743
+Calculation converged for this set of angles. Area: 115.791 Estimated Error: 9.09513
+Projecting at angles: 1.88496 1.32278
+Calculation converged for this set of angles. Area: 123.777 Estimated Error: 9.27382
+Projecting at angles: 1.88496 1.48812
+Calculation converged for this set of angles. Area: 128.768 Estimated Error: 9.3753
+Projecting at angles: 1.88496 1.65347
+Calculation converged for this set of angles. Area: 125.773 Estimated Error: 9.31533
+Projecting at angles: 1.88496 1.81882
+Calculation converged for this set of angles. Area: 125.773 Estimated Error: 9.31533
+Projecting at angles: 1.88496 1.98416
+Calculation converged for this set of angles. Area: 101.817 Estimated Error: 8.7307
+Projecting at angles: 1.88496 2.14951
+Calculation converged for this set of angles. Area: 118.786 Estimated Error: 9.16454
+Projecting at angles: 1.88496 2.31486
+Calculation converged for this set of angles. Area: 127.77 Estimated Error: 9.35562
+Projecting at angles: 1.88496 2.4802
+Calculation converged for this set of angles. Area: 122.779 Estimated Error: 9.25259
+Projecting at angles: 1.88496 2.64555
+Calculation converged for this set of angles. Area: 117.788 Estimated Error: 9.14173
+Projecting at angles: 1.88496 2.8109
+Calculation converged for this set of angles. Area: 120.782 Estimated Error: 9.2092
+Projecting at angles: 1.88496 2.97625
+Calculation converged for this set of angles. Area: 97.8238 Estimated Error: 8.61355
+Projecting at angles: 1.88496 3.14159
+Calculation converged for this set of angles. Area: 109.802 Estimated Error: 8.94732
+Projecting at angles: 1.88496 3.30694
+Calculation converged for this set of angles. Area: 102.815 Estimated Error: 8.75905
+Projecting at angles: 1.88496 3.47229
+Calculation converged for this set of angles. Area: 102.815 Estimated Error: 8.75905
+Projecting at angles: 1.88496 3.63763
+Calculation converged for this set of angles. Area: 123.777 Estimated Error: 9.27382
+Projecting at angles: 1.88496 3.80298
+Calculation converged for this set of angles. Area: 128.768 Estimated Error: 9.3753
+Projecting at angles: 1.88496 3.96833
+Calculation converged for this set of angles. Area: 113.795 Estimated Error: 9.04721
+Projecting at angles: 1.88496 4.13367
+Calculation converged for this set of angles. Area: 122.779 Estimated Error: 9.25259
+Projecting at angles: 1.88496 4.29902
+Calculation converged for this set of angles. Area: 137.752 Estimated Error: 9.53915
+Projecting at angles: 1.88496 4.46437
+Calculation converged for this set of angles. Area: 119.784 Estimated Error: 9.18703
+Projecting at angles: 1.88496 4.62972
+Calculation converged for this set of angles. Area: 136.754 Estimated Error: 9.52211
+Projecting at angles: 1.88496 4.79506
+Calculation converged for this set of angles. Area: 130.764 Estimated Error: 9.41378
+Projecting at angles: 1.88496 4.96041
+Calculation converged for this set of angles. Area: 122.779 Estimated Error: 9.25259
+Projecting at angles: 1.88496 5.12576
+Calculation converged for this set of angles. Area: 121.781 Estimated Error: 9.23106
+Projecting at angles: 1.88496 5.2911
+Calculation converged for this set of angles. Area: 108.804 Estimated Error: 8.92149
+Projecting at angles: 1.88496 5.45645
+Calculation converged for this set of angles. Area: 117.788 Estimated Error: 9.14173
+Projecting at angles: 1.88496 5.6218
+Calculation converged for this set of angles. Area: 129.766 Estimated Error: 9.39469
+Projecting at angles: 1.88496 5.78714
+Calculation converged for this set of angles. Area: 109.802 Estimated Error: 8.94732
+Projecting at angles: 1.88496 5.95249
+Calculation converged for this set of angles. Area: 113.795 Estimated Error: 9.04721
+Projecting at angles: 1.88496 6.11784
+Calculation converged for this set of angles. Area: 120.782 Estimated Error: 9.2092
+Projecting at angles: 1.88496 6.28319
+Calculation converged for this set of angles. Area: 115.791 Estimated Error: 9.09513
+Projecting at angles: 2.04204 0.17952
+Calculation converged for this set of angles. Area: 111.799 Estimated Error: 8.99794
+Projecting at angles: 2.04204 0.359039
+Calculation converged for this set of angles. Area: 105.809 Estimated Error: 8.84188
+Projecting at angles: 2.04204 0.538559
+Calculation converged for this set of angles. Area: 123.777 Estimated Error: 9.27382
+Projecting at angles: 2.04204 0.718078
+Calculation converged for this set of angles. Area: 112.797 Estimated Error: 9.02274
+Projecting at angles: 2.04204 0.897598
+Calculation converged for this set of angles. Area: 126.772 Estimated Error: 9.33562
+Projecting at angles: 2.04204 1.07712
+Calculation converged for this set of angles. Area: 106.808 Estimated Error: 8.86877
+Projecting at angles: 2.04204 1.25664
+Calculation converged for this set of angles. Area: 117.788 Estimated Error: 9.14173
+Projecting at angles: 2.04204 1.43616
+Calculation converged for this set of angles. Area: 129.766 Estimated Error: 9.39469
+Projecting at angles: 2.04204 1.61568
+Calculation converged for this set of angles. Area: 116.79 Estimated Error: 9.11859
+Projecting at angles: 2.04204 1.7952
+Calculation converged for this set of angles. Area: 130.764 Estimated Error: 9.41378
+Projecting at angles: 2.04204 1.97472
+Calculation converged for this set of angles. Area: 128.768 Estimated Error: 9.3753
+Projecting at angles: 2.04204 2.15423
+Calculation converged for this set of angles. Area: 131.763 Estimated Error: 9.43257
+Projecting at angles: 2.04204 2.33375
+Calculation converged for this set of angles. Area: 127.77 Estimated Error: 9.35562
+Projecting at angles: 2.04204 2.51327
+Calculation converged for this set of angles. Area: 113.795 Estimated Error: 9.04721
+Projecting at angles: 2.04204 2.69279
+Calculation converged for this set of angles. Area: 116.79 Estimated Error: 9.11859
+Projecting at angles: 2.04204 2.87231
+Calculation converged for this set of angles. Area: 126.772 Estimated Error: 9.33562
+Projecting at angles: 2.04204 3.05183
+Calculation converged for this set of angles. Area: 84.8472 Estimated Error: 8.1884
+Projecting at angles: 2.04204 3.23135
+Calculation converged for this set of angles. Area: 109.802 Estimated Error: 8.94732
+Projecting at angles: 2.04204 3.41087
+Calculation converged for this set of angles. Area: 91.8346 Estimated Error: 8.42609
+Projecting at angles: 2.04204 3.59039
+Calculation converged for this set of angles. Area: 132.761 Estimated Error: 9.45106
+Projecting at angles: 2.04204 3.76991
+Calculation converged for this set of angles. Area: 116.79 Estimated Error: 9.11859
+Projecting at angles: 2.04204 3.94943
+Calculation converged for this set of angles. Area: 117.788 Estimated Error: 9.14173
+Projecting at angles: 2.04204 4.12895
+Calculation converged for this set of angles. Area: 123.777 Estimated Error: 9.27382
+Projecting at angles: 2.04204 4.30847
+Calculation converged for this set of angles. Area: 117.788 Estimated Error: 9.14173
+Projecting at angles: 2.04204 4.48799
+Calculation converged for this set of angles. Area: 129.766 Estimated Error: 9.39469
+Projecting at angles: 2.04204 4.66751
+Calculation converged for this set of angles. Area: 120.782 Estimated Error: 9.2092
+Projecting at angles: 2.04204 4.84703
+Calculation converged for this set of angles. Area: 118.786 Estimated Error: 9.16454
+Projecting at angles: 2.04204 5.02655
+Calculation converged for this set of angles. Area: 121.781 Estimated Error: 9.23106
+Projecting at angles: 2.04204 5.20607
+Calculation converged for this set of angles. Area: 123.777 Estimated Error: 9.27382
+Projecting at angles: 2.04204 5.38559
+Calculation converged for this set of angles. Area: 125.773 Estimated Error: 9.31533
+Projecting at angles: 2.04204 5.56511
+Calculation converged for this set of angles. Area: 121.781 Estimated Error: 9.23106
+Projecting at angles: 2.04204 5.74463
+Calculation converged for this set of angles. Area: 123.777 Estimated Error: 9.27382
+Projecting at angles: 2.04204 5.92415
+Calculation converged for this set of angles. Area: 109.802 Estimated Error: 8.94732
+Projecting at angles: 2.04204 6.10367
+Calculation converged for this set of angles. Area: 114.793 Estimated Error: 9.07133
+Projecting at angles: 2.04204 6.28319
+Calculation converged for this set of angles. Area: 106.808 Estimated Error: 8.86877
+Projecting at angles: 2.19911 0.19635
+Calculation converged for this set of angles. Area: 107.806 Estimated Error: 8.89531
+Projecting at angles: 2.19911 0.392699
+Calculation converged for this set of angles. Area: 96.8256 Estimated Error: 8.5833
+Projecting at angles: 2.19911 0.589049
+Calculation converged for this set of angles. Area: 121.781 Estimated Error: 9.23106
+Projecting at angles: 2.19911 0.785398
+Calculation converged for this set of angles. Area: 127.77 Estimated Error: 9.35562
+Projecting at angles: 2.19911 0.981748
+Calculation converged for this set of angles. Area: 121.781 Estimated Error: 9.23106
+Projecting at angles: 2.19911 1.1781
+Calculation converged for this set of angles. Area: 136.754 Estimated Error: 9.52211
+Projecting at angles: 2.19911 1.37445
+Calculation converged for this set of angles. Area: 130.764 Estimated Error: 9.41378
+Projecting at angles: 2.19911 1.5708
+Calculation converged for this set of angles. Area: 122.779 Estimated Error: 9.25259
+Projecting at angles: 2.19911 1.76715
+Calculation converged for this set of angles. Area: 127.77 Estimated Error: 9.35562
+Projecting at angles: 2.19911 1.9635
+Calculation converged for this set of angles. Area: 112.797 Estimated Error: 9.02274
+Projecting at angles: 2.19911 2.15984
+Calculation converged for this set of angles. Area: 118.786 Estimated Error: 9.16454
+Projecting at angles: 2.19911 2.35619
+Calculation converged for this set of angles. Area: 115.791 Estimated Error: 9.09513
+Projecting at angles: 2.19911 2.55254
+Calculation converged for this set of angles. Area: 116.79 Estimated Error: 9.11859
+Projecting at angles: 2.19911 2.74889
+Calculation converged for this set of angles. Area: 106.808 Estimated Error: 8.86877
+Projecting at angles: 2.19911 2.94524
+Calculation converged for this set of angles. Area: 99.8202 Estimated Error: 8.67289
+Projecting at angles: 2.19911 3.14159
+Calculation converged for this set of angles. Area: 81.8526 Estimated Error: 8.07987
+Projecting at angles: 2.19911 3.33794
+Calculation converged for this set of angles. Area: 104.811 Estimated Error: 8.81464
+Projecting at angles: 2.19911 3.53429
+Calculation converged for this set of angles. Area: 119.784 Estimated Error: 9.18703
+Projecting at angles: 2.19911 3.73064
+Calculation converged for this set of angles. Area: 94.8292 Estimated Error: 8.52162
+Projecting at angles: 2.19911 3.92699
+Calculation converged for this set of angles. Area: 131.763 Estimated Error: 9.43257
+Projecting at angles: 2.19911 4.12334
+Calculation converged for this set of angles. Area: 132.761 Estimated Error: 9.45106
+Projecting at angles: 2.19911 4.31969
+Calculation converged for this set of angles. Area: 113.795 Estimated Error: 9.04721
+Projecting at angles: 2.19911 4.51604
+Calculation converged for this set of angles. Area: 113.795 Estimated Error: 9.04721
+Projecting at angles: 2.19911 4.71239
+Calculation converged for this set of angles. Area: 126.772 Estimated Error: 9.33562
+Projecting at angles: 2.19911 4.90874
+Calculation converged for this set of angles. Area: 112.797 Estimated Error: 9.02274
+Projecting at angles: 2.19911 5.10509
+Calculation converged for this set of angles. Area: 115.791 Estimated Error: 9.09513
+Projecting at angles: 2.19911 5.30144
+Calculation converged for this set of angles. Area: 114.793 Estimated Error: 9.07133
+Projecting at angles: 2.19911 5.49779
+Calculation converged for this set of angles. Area: 101.817 Estimated Error: 8.7307
+Projecting at angles: 2.19911 5.69414
+Calculation converged for this set of angles. Area: 119.784 Estimated Error: 9.18703
+Projecting at angles: 2.19911 5.89049
+Calculation converged for this set of angles. Area: 98.822 Estimated Error: 8.64341
+Projecting at angles: 2.19911 6.08684
+Calculation converged for this set of angles. Area: 89.8382 Estimated Error: 8.36033
+Projecting at angles: 2.19911 6.28319
+Calculation converged for this set of angles. Area: 96.8256 Estimated Error: 8.5833
+Projecting at angles: 2.35619 0.224399
+Calculation converged for this set of angles. Area: 115.791 Estimated Error: 9.09513
+Projecting at angles: 2.35619 0.448799
+Calculation converged for this set of angles. Area: 94.8292 Estimated Error: 8.52162
+Projecting at angles: 2.35619 0.673198
+Calculation converged for this set of angles. Area: 108.804 Estimated Error: 8.92149
+Projecting at angles: 2.35619 0.897598
+Calculation converged for this set of angles. Area: 122.779 Estimated Error: 9.25259
+Projecting at angles: 2.35619 1.122
+Calculation converged for this set of angles. Area: 124.775 Estimated Error: 9.29473
+Projecting at angles: 2.35619 1.3464
+Calculation converged for this set of angles. Area: 114.793 Estimated Error: 9.07133
+Projecting at angles: 2.35619 1.5708
+Calculation converged for this set of angles. Area: 139.748 Estimated Error: 9.57238
+Projecting at angles: 2.35619 1.7952
+Calculation converged for this set of angles. Area: 134.757 Estimated Error: 9.48717
+Projecting at angles: 2.35619 2.0196
+Calculation converged for this set of angles. Area: 130.764 Estimated Error: 9.41378
+Projecting at angles: 2.35619 2.24399
+Calculation converged for this set of angles. Area: 121.781 Estimated Error: 9.23106
+Projecting at angles: 2.35619 2.46839
+Calculation converged for this set of angles. Area: 105.809 Estimated Error: 8.84188
+Projecting at angles: 2.35619 2.69279
+Calculation converged for this set of angles. Area: 103.813 Estimated Error: 8.78702
+Projecting at angles: 2.35619 2.91719
+Calculation converged for this set of angles. Area: 93.831 Estimated Error: 8.49018
+Projecting at angles: 2.35619 3.14159
+Calculation converged for this set of angles. Area: 70.8723 Estimated Error: 7.64421
+Projecting at angles: 2.35619 3.36599
+Calculation converged for this set of angles. Area: 101.817 Estimated Error: 8.7307
+Projecting at angles: 2.35619 3.59039
+Calculation converged for this set of angles. Area: 108.804 Estimated Error: 8.92149
+Projecting at angles: 2.35619 3.81479
+Calculation converged for this set of angles. Area: 113.795 Estimated Error: 9.04721
+Projecting at angles: 2.35619 4.03919
+Calculation converged for this set of angles. Area: 119.784 Estimated Error: 9.18703
+Projecting at angles: 2.35619 4.26359
+Calculation converged for this set of angles. Area: 120.782 Estimated Error: 9.2092
+Projecting at angles: 2.35619 4.48799
+Calculation converged for this set of angles. Area: 120.782 Estimated Error: 9.2092
+Projecting at angles: 2.35619 4.71239
+Calculation converged for this set of angles. Area: 114.793 Estimated Error: 9.07133
+Projecting at angles: 2.35619 4.93679
+Calculation converged for this set of angles. Area: 133.759 Estimated Error: 9.46926
+Projecting at angles: 2.35619 5.16119
+Calculation converged for this set of angles. Area: 106.808 Estimated Error: 8.86877
+Projecting at angles: 2.35619 5.38559
+Calculation converged for this set of angles. Area: 119.784 Estimated Error: 9.18703
+Projecting at angles: 2.35619 5.60999
+Calculation converged for this set of angles. Area: 115.791 Estimated Error: 9.09513
+Projecting at angles: 2.35619 5.83439
+Calculation converged for this set of angles. Area: 92.8328 Estimated Error: 8.45834
+Projecting at angles: 2.35619 6.05879
+Calculation converged for this set of angles. Area: 106.808 Estimated Error: 8.86877
+Projecting at angles: 2.35619 6.28319
+Calculation converged for this set of angles. Area: 97.8238 Estimated Error: 8.61355
+Projecting at angles: 2.51327 0.273182
+Calculation converged for this set of angles. Area: 94.8292 Estimated Error: 8.52162
+Projecting at angles: 2.51327 0.546364
+Calculation converged for this set of angles. Area: 123.777 Estimated Error: 9.27382
+Projecting at angles: 2.51327 0.819546
+Calculation converged for this set of angles. Area: 127.77 Estimated Error: 9.35562
+Projecting at angles: 2.51327 1.09273
+Calculation converged for this set of angles. Area: 123.777 Estimated Error: 9.27382
+Projecting at angles: 2.51327 1.36591
+Calculation converged for this set of angles. Area: 119.784 Estimated Error: 9.18703
+Projecting at angles: 2.51327 1.63909
+Calculation converged for this set of angles. Area: 122.779 Estimated Error: 9.25259
+Projecting at angles: 2.51327 1.91227
+Calculation converged for this set of angles. Area: 108.804 Estimated Error: 8.92149
+Projecting at angles: 2.51327 2.18546
+Calculation converged for this set of angles. Area: 115.791 Estimated Error: 9.09513
+Projecting at angles: 2.51327 2.45864
+Calculation converged for this set of angles. Area: 94.8292 Estimated Error: 8.52162
+Projecting at angles: 2.51327 2.73182
+Calculation converged for this set of angles. Area: 99.8202 Estimated Error: 8.67289
+Projecting at angles: 2.51327 3.005
+Calculation converged for this set of angles. Area: 91.8346 Estimated Error: 8.42609
+Projecting at angles: 2.51327 3.27818
+Calculation converged for this set of angles. Area: 90.8364 Estimated Error: 8.39342
+Projecting at angles: 2.51327 3.55137
+Calculation converged for this set of angles. Area: 108.804 Estimated Error: 8.92149
+Projecting at angles: 2.51327 3.82455
+Calculation converged for this set of angles. Area: 116.79 Estimated Error: 9.11859
+Projecting at angles: 2.51327 4.09773
+Calculation converged for this set of angles. Area: 113.795 Estimated Error: 9.04721
+Projecting at angles: 2.51327 4.37091
+Calculation converged for this set of angles. Area: 118.786 Estimated Error: 9.16454
+Projecting at angles: 2.51327 4.64409
+Calculation converged for this set of angles. Area: 125.773 Estimated Error: 9.31533
+Projecting at angles: 2.51327 4.91728
+Calculation converged for this set of angles. Area: 133.759 Estimated Error: 9.46926
+Projecting at angles: 2.51327 5.19046
+Calculation converged for this set of angles. Area: 111.799 Estimated Error: 8.99794
+Projecting at angles: 2.51327 5.46364
+Calculation converged for this set of angles. Area: 113.795 Estimated Error: 9.04721
+Projecting at angles: 2.51327 5.73682
+Calculation converged for this set of angles. Area: 105.809 Estimated Error: 8.84188
+Projecting at angles: 2.51327 6.01
+Calculation converged for this set of angles. Area: 83.849 Estimated Error: 8.15268
+Projecting at angles: 2.51327 6.28319
+Calculation converged for this set of angles. Area: 79.8562 Estimated Error: 8.00517
+Projecting at angles: 2.67035 0.349066
+Calculation converged for this set of angles. Area: 87.8418 Estimated Error: 8.29287
+Projecting at angles: 2.67035 0.698132
+Calculation converged for this set of angles. Area: 108.804 Estimated Error: 8.92149
+Projecting at angles: 2.67035 1.0472
+Calculation converged for this set of angles. Area: 122.779 Estimated Error: 9.25259
+Projecting at angles: 2.67035 1.39626
+Calculation converged for this set of angles. Area: 139.748 Estimated Error: 9.57238
+Projecting at angles: 2.67035 1.74533
+Calculation converged for this set of angles. Area: 137.752 Estimated Error: 9.53915
+Projecting at angles: 2.67035 2.0944
+Calculation converged for this set of angles. Area: 113.795 Estimated Error: 9.04721
+Projecting at angles: 2.67035 2.44346
+Calculation converged for this set of angles. Area: 114.793 Estimated Error: 9.07133
+Projecting at angles: 2.67035 2.79253
+Calculation converged for this set of angles. Area: 78.858 Estimated Error: 7.96709
+Projecting at angles: 2.67035 3.14159
+Calculation converged for this set of angles. Area: 81.8526 Estimated Error: 8.07987
+Projecting at angles: 2.67035 3.49066
+Calculation converged for this set of angles. Area: 97.8238 Estimated Error: 8.61355
+Projecting at angles: 2.67035 3.83972
+Calculation converged for this set of angles. Area: 111.799 Estimated Error: 8.99794
+Projecting at angles: 2.67035 4.18879
+Calculation converged for this set of angles. Area: 125.773 Estimated Error: 9.31533
+Projecting at angles: 2.67035 4.53786
+Calculation converged for this set of angles. Area: 123.777 Estimated Error: 9.27382
+Projecting at angles: 2.67035 4.88692
+Calculation converged for this set of angles. Area: 118.786 Estimated Error: 9.16454
+Projecting at angles: 2.67035 5.23599
+Calculation converged for this set of angles. Area: 101.817 Estimated Error: 8.7307
+Projecting at angles: 2.67035 5.58505
+Calculation converged for this set of angles. Area: 96.8256 Estimated Error: 8.5833
+Projecting at angles: 2.67035 5.93412
+Calculation converged for this set of angles. Area: 85.8454 Estimated Error: 8.22367
+Projecting at angles: 2.67035 6.28319
+Calculation converged for this set of angles. Area: 89.8382 Estimated Error: 8.36033
+Projecting at angles: 2.82743 0.523599
+Calculation converged for this set of angles. Area: 122.779 Estimated Error: 9.25259
+Projecting at angles: 2.82743 1.0472
+Calculation converged for this set of angles. Area: 118.786 Estimated Error: 9.16454
+Projecting at angles: 2.82743 1.5708
+Calculation converged for this set of angles. Area: 122.779 Estimated Error: 9.25259
+Projecting at angles: 2.82743 2.0944
+Calculation converged for this set of angles. Area: 107.806 Estimated Error: 8.89531
+Projecting at angles: 2.82743 2.61799
+Calculation converged for this set of angles. Area: 112.797 Estimated Error: 9.02274
+Projecting at angles: 2.82743 3.14159
+Calculation converged for this set of angles. Area: 75.8634 Estimated Error: 7.8499
+Projecting at angles: 2.82743 3.66519
+Calculation converged for this set of angles. Area: 109.802 Estimated Error: 8.94732
+Projecting at angles: 2.82743 4.18879
+Calculation converged for this set of angles. Area: 127.77 Estimated Error: 9.35562
+Projecting at angles: 2.82743 4.71239
+Calculation converged for this set of angles. Area: 133.759 Estimated Error: 9.46926
+Projecting at angles: 2.82743 5.23599
+Calculation converged for this set of angles. Area: 123.777 Estimated Error: 9.27382
+Projecting at angles: 2.82743 5.75959
+Calculation converged for this set of angles. Area: 104.811 Estimated Error: 8.81464
+Projecting at angles: 2.82743 6.28319
+Calculation converged for this set of angles. Area: 98.822 Estimated Error: 8.64341
+Projecting at angles: 2.98451 1.0472
+Calculation converged for this set of angles. Area: 118.786 Estimated Error: 9.16454
+Projecting at angles: 2.98451 2.0944
+Calculation converged for this set of angles. Area: 110.8 Estimated Error: 8.9728
+Projecting at angles: 2.98451 3.14159
+Calculation converged for this set of angles. Area: 99.8202 Estimated Error: 8.67289
+Projecting at angles: 2.98451 4.18879
+Calculation converged for this set of angles. Area: 135.755 Estimated Error: 9.50478
+Projecting at angles: 2.98451 5.23599
+Calculation converged for this set of angles. Area: 120.782 Estimated Error: 9.2092
+Projecting at angles: 2.98451 6.28319
+Calculation converged for this set of angles. Area: 90.8364 Estimated Error: 8.39342
+Projecting at angles: 3.14159 6.28319
+Calculation converged for this set of angles. Area: 96.8256 Estimated Error: 8.5833
+Mean Area Over All Projections: 120.373
+Total ESE: 0.409789

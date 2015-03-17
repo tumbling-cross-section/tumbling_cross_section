@@ -1,0 +1,12 @@
+
+prototype code written in octave
+
+This prototype is no longer supported,
+but is provided in case you have trouble
+compiling C.  Octave is compatible with
+matlab, or can be run using a free 
+interpreter from the gnu project.
+
+It is advisable to use the C version instead
+for greater efficiency.
+
