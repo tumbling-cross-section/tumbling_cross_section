@@ -23,7 +23,7 @@ sudo make install
 To compile on Windows:
 -----------------------
 
---Install minGW (a free C compiler);
+--Install minGW (a free C compiler)
 
 run src/compile_minGW.bat 
 
