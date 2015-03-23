@@ -43,7 +43,9 @@ int  testGridSquare( ATOM_T *headAtom, PDB_STRUCT_T *PDB_struct, double x, doubl
 /* interface section - read, typecast and verify arguments then call the calculation */
 int main(int argc, char **argv)
 {
-  int    opt, optIndex, seed, nSteps;
+  double area;
+  int    nThetaSteps, nPhiStepsMax;
+  int    opt, optIndex, seed;
   double gasRadius;
   char  *fileName, *radiusFileName, *logFileName;
  
@@ -52,29 +54,30 @@ int main(int argc, char **argv)
     {"radlib",     1, 0, 'r'},
     {"infile",     1, 0, 'i'},
     {"seed",       1, 0, 's'},
-    {"nsteps",     1, 0, 'n'},
+    {"anglesteps", 1, 0, 'a'},
     {"logfile",    1, 0, 'l'},
     {"verbose",    0, 0, 'v'},
     {'\0', 0, 0, '\0'},
   };
 
   /* initialise arguments */
+  nThetaSteps     = 0;
+  nPhiStepsMax    = 0; 
   gasRadius       = -1.0;
   fileName        = NULL;
   radiusFileName  = NULL;
   logFileName     = NULL;
   seed            = 0;
-  nSteps          = 0;
-  
+
   crossArea_verboseFlag = 0;
   crossArea_logFile      = stdout; /* write to stdout by default */
   crossArea_errorLogFile = stderr;
 
   /* loop over arguments passed in */
-  for ( opt = getopt_long( argc, argv, "g:r:i:s:n:l:v",
+  for ( opt = getopt_long( argc, argv, "g:r:i:s:a:l:v",
         longOptions, &optIndex );
         opt != (char)-1;
-        opt  = getopt_long( argc, argv, "g:r:i:s:n:l:v",
+        opt  = getopt_long( argc, argv, "g:r:i:s:a:l:v",
         longOptions, &optIndex ) ) {
     
     switch ( opt ) {
@@ -105,8 +108,9 @@ int main(int argc, char **argv)
       seed = atoi( optarg );
       srand( seed );
       break;
-    case 'n':
-      nSteps  = atoi( optarg );
+    case 'a':
+      nThetaSteps  = atoi( optarg );
+      nPhiStepsMax = 2 * nThetaSteps;
       break;
     case 'v':
       fprintf( crossArea_logFile,"Verbose output engaged!\n");
@@ -124,34 +128,33 @@ int main(int argc, char **argv)
   }
  
   /* make sure everything is present */
-  if( nSteps <= 0 || gasRadius < 0.0 || fileName == NULL || radiusFileName == NULL )
+  if( nThetaSteps <= 0 || gasRadius < 0.0 || fileName == NULL || radiusFileName == NULL )
   {     
      fprintf( crossArea_errorLogFile, usage );
      fprintf( stderr, usage );
      return( EXIT_FAILURE );
   }
 
-  crossArea(  nSteps, gasRadius, fileName, radiusFileName );
+  area = crossArea_old(  nThetaSteps, nPhiStepsMax, gasRadius, fileName, radiusFileName );
 
   return( EXIT_SUCCESS );
 }
 
 
 
-double crossArea( int nSteps, double gasRadius, char *fileName, char *radiusFilename )
+double crossArea_old( int nThetaSteps, int nPhiStepsMax, double gasRadius, char *fileName, char *radiusFilename )
 {
   PDB_STRUCT_T *PDB_struct;
-  int           angleCount, fibStep;
+  int           angleCount, thetaStep, phiStep, nPhiSteps;
   double        theta, phi;
   double        Rx[3][3], Ry_andProj[3][3], *RStheta, *RS_proj;
   double        point[2], pointFromOrigin;
   double        usePointsInside;
   double        p_hit, areaEstimate, stdDevEstimate;
   double        meanArea, meanError, errorRatio;
-  int           atomIndex, guessIndex, crdIndex;
+  int           atomIndex, crdIndex, guessIndex;
   int           hitCount, lookupGridLength;
   ATOM_T      **lookupGrid, *atomTags;
-  double        goldenRatio;
 
   fprintf( crossArea_logFile,  "Reading coordinates from file \"%s\" and radii from \"%s\"\n", fileName, radiusFilename);
 
@@ -186,77 +189,72 @@ double crossArea( int nSteps, double gasRadius, char *fileName, char *radiusFile
   Rx[2][0] = 0.0;
   
   /* finding mean tumbling area.. */
-  angleCount   = 0;
-  meanArea     = 0.0;
-  meanError    = 0.0;
+  angleCount = 0;
+  meanArea   = 0.0;
+  meanError  = 0.0;
 
-  /** The most irrational of all numbers */
-  goldenRatio  = (1.0 + sqrt(5.0)) / 2.0; // golden ratio
-  
-  /** Loop over orientations on a Fibbonacci grid.
-   **
-   ** For pseudocode (and helpful diagram)
-   ** see in-press article by Gonzalez in Mathematical 
-   ** Geosciences.
-   ** 
-   ** ArXiv: http://dx.doi.org/10.1007/s11004-009-9257-x
-   **
-   */
-  for( fibStep = -nSteps; fibStep <= nSteps; fibStep++ ){
+  for( thetaStep = 1; thetaStep <= nThetaSteps; thetaStep++ )
+  {
 
-    //asin: returns values on [-pi/2....pi/2].
-    theta = asin( (2*fibStep) / (double)(2*nSteps+1) );
-    theta = theta + PI; //nicer to have range on [0...PI]
+   theta = PI * thetaStep / ( (double) nThetaSteps );
 
-    phi   = 2.0 * PI * fibStep / goldenRatio;
+   /* rotation matrix around x-axis 
+   ** Rx = [1 0 0; 0 cos(theta) -sin(theta); 0 sin(theta) cos(theta) ]; */
+   Rx[1][1] = cos(theta);
+   Rx[1][2] = -1.0 * sin(theta);
+   Rx[2][1] = sin(theta);
+   Rx[2][2] = cos(theta);
 
-    printf("##angle: %f %f\n", theta, phi);
+   /* rotate all the coordinates about the x-axis */
+   for( crdIndex = 0; crdIndex < PDB_struct->nAtoms * 3; crdIndex += 3 )
+   { 
+     /*RStheta = PDB_struct.crds(:,1:3) * Rx;*/
+     RStheta[crdIndex]     = PDB_struct->crds[crdIndex]; /* rotation is about x axis */
+     RStheta[crdIndex + 1] = Rx[1][1] * PDB_struct->crds[crdIndex + 1] +
+                             Rx[1][2] * PDB_struct->crds[crdIndex + 2];
 
-    /* rotation matrix around x-axis 
-    ** Rx = [1 0 0; 0 cos(theta) -sin(theta); 0 sin(theta) cos(theta) ]; */
-    Rx[1][1] =        cos(theta);
-    Rx[1][2] = -1.0 * sin(theta);
-    Rx[2][1] =        sin(theta);
-    Rx[2][2] =        cos(theta);
-
-    /* rotate all the coordinates about the x-axis */
-    for( crdIndex = 0; crdIndex < PDB_struct->nAtoms * 3; crdIndex += 3 ){ 
-      /*RStheta = PDB_struct.crds(:,1:3) * Rx;*/
-      RStheta[crdIndex]     = PDB_struct->crds[crdIndex]; /* rotation is about x axis */
-      RStheta[crdIndex + 1] = Rx[1][1] * PDB_struct->crds[crdIndex + 1] +
-                              Rx[1][2] * PDB_struct->crds[crdIndex + 2];
-
-      RStheta[crdIndex + 2] = Rx[2][1] * PDB_struct->crds[crdIndex + 1] + 
+     RStheta[crdIndex + 2] = Rx[2][1] * PDB_struct->crds[crdIndex + 1] + 
                              Rx[2][2] * PDB_struct->crds[crdIndex + 2];
-    }
+   }
 
-    /* rotate around y-axis and project into x-y plane */
-    /* Ry_andProj = [ cos(phi) 0 sin(phi); 0 1 0; 0 0 0]; */
-    Ry_andProj[0][0] = cos(phi);
-    Ry_andProj[0][2] = sin(phi);
-    Ry_andProj[1][1] = 1.0;
+   /* sample evenly over the unit sphere; cast to int has same effect as 'floor'*/
+   nPhiSteps = (int)( nPhiStepsMax * sin( theta ) );
+   if( nPhiSteps == 0 )
+   {
+     nPhiSteps = 1; /*zero steps is a bit funny*/
+   }
+
+   for( phiStep = 1; phiStep <= nPhiSteps; phiStep++ )
+   {
+     phi        = 2.0 * PI * phiStep / (double)nPhiSteps;
+     /* rotate around y-axis and project into x-y plane */
+     /* Ry_andProj = [ cos(phi) 0 sin(phi); 0 1 0; 0 0 0]; */
+     Ry_andProj[0][0] = cos(phi);
+     Ry_andProj[0][2] = sin(phi);
+     Ry_andProj[1][1] = 1.0;
       
-    for( crdIndex = 0; crdIndex < PDB_struct->nAtoms * 3; crdIndex += 3 )
-    { 
+     for( crdIndex = 0; crdIndex < PDB_struct->nAtoms * 3; crdIndex += 3 )
+     { 
        /*RStheta = PDB_struct.crds(:,1:3) * Rx;*/
        RS_proj[crdIndex]     = Ry_andProj[0][0] * RStheta[crdIndex] + Ry_andProj[0][2] * RStheta[crdIndex + 2];
        RS_proj[crdIndex + 1] = RStheta[crdIndex + 1];
        RS_proj[crdIndex + 2] = 0.0;
-    }
+     }
 
-    /* allocate each atom centre to a grid square for quick lookup */
-    fillLookupGrid( lookupGrid, lookupGridLength, RS_proj, atomTags, PDB_struct, gasRadius );
+     /* allocate each atom centre to a grid square for quick lookup */
+     fillLookupGrid( lookupGrid, lookupGridLength, RS_proj, atomTags, PDB_struct, gasRadius );
 
-    if( crossArea_verboseFlag == 1 ){
+     if( crossArea_verboseFlag == 1 )
+     {
       fprintf( crossArea_logFile,  "Projecting at angles: %g %g\n", theta, phi );
-    }
+     }
 
-    /* start guessing if points are in or out of the shape
-    ** ...scale max number of guesses with size of shape
-    ** but do not expect to reach this maximum */
-    hitCount = 0;
-    for( guessIndex = 1; guessIndex <= ( PDB_struct->L * PDB_struct->L ); guessIndex++ )     
-    {
+     /* start guessing if points are in or out of the shape
+     ** ...scale max number of guesses with size of shape
+     ** but do not expect to reach this maximum */
+     hitCount = 0;
+     for( guessIndex = 1; guessIndex <= ( PDB_struct->L * PDB_struct->L ); guessIndex++ )     
+     {
            /* random x-y coordinates in square of side L */
            point[0] = ((rand()/((double)RAND_MAX)) - 0.5) * PDB_struct->L;
            point[1] = ((rand()/((double)RAND_MAX)) - 0.5) * PDB_struct->L;
@@ -353,7 +351,7 @@ double crossArea( int nSteps, double gasRadius, char *fileName, char *radiusFile
 	fprintf( crossArea_logFile, "Calculation converged for this set of angles. Area: %g Estimated Error: %g\n", areaEstimate, stdDevEstimate);
        }
    }
-
+}
 
   /* work out mean cross sectional area */
   meanArea  = meanArea  / (double)angleCount; 
@@ -535,9 +533,12 @@ int lookupGridTestCollision( double        x,
 int testGridSquare( ATOM_T *gridAtom, PDB_STRUCT_T *PDB_struct, double x, double y, double gasRadius )
 {
   double xx, yy, clearance;
+  int    crdIndex;
 
   while( gridAtom != NULL )
   {
+    crdIndex = gridAtom->id * 3;
+
     xx = x - gridAtom->gridX;
     yy = y - gridAtom->gridY;
 

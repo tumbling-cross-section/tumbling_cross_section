@@ -1,5 +1,9 @@
 
-double crossArea( int nThetaSteps, int nPhiStepsMax, double gasRadius, char *fileName, char *radiusFilename );
+double crossArea( int nSteps, double gasRadius, char *fileName, char *radiusFilename );
+
+double crossArea_old( int nSteps, int, double gasRadius, char *fileName, char *radiusFilename );
+
+
 
 
 /* global variables for the whole program */
