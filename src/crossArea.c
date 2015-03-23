@@ -10,7 +10,7 @@
 #include "usage.h"
 
 #define MIN_GUESSES           100   /*this threshold stops the code from exiting 
-				     **before the measure of estimated error is stable.*/ 
+				                    **before the measure of estimated error is stable.*/ 
 #define PI                    3.1415926535897932  
 #define _SCAN_EXHAUSTIVE
 
@@ -18,36 +18,36 @@
 typedef struct atom_tag ATOM_T;
 struct atom_tag {
   ATOM_T *next;
-  float   gridX;
-  float   gridY;
+  double  gridX;
+  double  gridY;
   int     id;
 }; /* (recursively) define this tag so as to make atoms listable (as well as addressable in an array) */
 
 /* declare local functions */
 void fillLookupGrid(          ATOM_T      **lookupGrid, 
 			      int           lookupGridLength, 
-			      float        *RS_proj, 
+			      double       *RS_proj, 
 			      ATOM_T       *atoms, 
 			      PDB_STRUCT_T *PDB_struct,
-			      float         gasRadius);
+			      double        gasRadius);
 
-int  lookupGridTestCollision( float         x, 
-			      float         y, 
+int  lookupGridTestCollision( double        x, 
+			      double        y, 
 			      ATOM_T      **lookupGrid, 
 			      int           lookupGridLength, 
 			      PDB_STRUCT_T *PDB_struct,
-			      float         gasRadius);
+			      double        gasRadius);
 
-int  testGridSquare( ATOM_T *headAtom, PDB_STRUCT_T *PDB_struct, float x, float y, float gasRadius );
+int  testGridSquare( ATOM_T *headAtom, PDB_STRUCT_T *PDB_struct, double x, double y, double gasRadius );
 
 /* interface section - read, typecast and verify arguments then call the calculation */
 int main(int argc, char **argv)
 {
-  float area;
-  int   nThetaSteps, nPhiStepsMax;
-  int   opt, optIndex, seed;
-  float gasRadius;
-  char *fileName, *radiusFileName, *logFileName;
+  double area;
+  int    nThetaSteps, nPhiStepsMax;
+  int    opt, optIndex, seed;
+  double gasRadius;
+  char  *fileName, *radiusFileName, *logFileName;
  
   static struct option longOptions[] = {
     {"gasradius",  1, 0, 'g'},
@@ -142,21 +142,21 @@ int main(int argc, char **argv)
 
 
 
-float crossArea( int nThetaSteps, int nPhiStepsMax, float gasRadius, char *fileName, char *radiusFilename )
+double crossArea( int nThetaSteps, int nPhiStepsMax, double gasRadius, char *fileName, char *radiusFilename )
 {
   PDB_STRUCT_T *PDB_struct;
   int           angleCount, thetaStep, phiStep, nPhiSteps;
-  float         theta, phi;
-  float         Rx[3][3], Ry_andProj[3][3], *RStheta, *RS_proj;
-  float         point[2], pointFromOrigin;
-  float         usePointsInside;
-  float         p_hit, areaEstimate, stdDevEstimate;
-  float         meanArea, meanError, errorRatio;
+  double        theta, phi;
+  double        Rx[3][3], Ry_andProj[3][3], *RStheta, *RS_proj;
+  double        point[2], pointFromOrigin;
+  double        usePointsInside;
+  double        p_hit, areaEstimate, stdDevEstimate;
+  double        meanArea, meanError, errorRatio;
   int           atomIndex, crdIndex, guessIndex;
   int           hitCount, lookupGridLength;
   ATOM_T      **lookupGrid, *atomTags;
 
- fprintf( crossArea_logFile,  "Reading coordinates from file \"%s\" and radii from \"%s\"\n", fileName, radiusFilename);
+  fprintf( crossArea_logFile,  "Reading coordinates from file \"%s\" and radii from \"%s\"\n", fileName, radiusFilename);
 
   PDB_struct = getPdbStructure( fileName, radiusFilename, 1 );
 
@@ -167,8 +167,8 @@ float crossArea( int nThetaSteps, int nPhiStepsMax, float gasRadius, char *fileN
   fprintf( crossArea_logFile, "\nStarting Monte-Carlo area measurement.\n" );
 
   /* allocate space for rotated coordinates */
-  RStheta = (float *)malloc( 3 * PDB_struct->nAtoms * sizeof(float) );
-  RS_proj = (float *)malloc( 3 * PDB_struct->nAtoms * sizeof(float) );
+  RStheta = (double*)malloc( 3 * PDB_struct->nAtoms * sizeof(double) );
+  RS_proj = (double*)malloc( 3 * PDB_struct->nAtoms * sizeof(double) );
 
   /* allocate and init space for atom lookup grid */
   atomTags   = (ATOM_T *)malloc( PDB_struct->nAtoms * sizeof(ATOM_T) );
@@ -196,7 +196,7 @@ float crossArea( int nThetaSteps, int nPhiStepsMax, float gasRadius, char *fileN
   for( thetaStep = 1; thetaStep <= nThetaSteps; thetaStep++ )
   {
 
-   theta = PI * thetaStep / ( (float) nThetaSteps );
+   theta = PI * thetaStep / ( (double) nThetaSteps );
 
    /* rotation matrix around x-axis 
    ** Rx = [1 0 0; 0 cos(theta) -sin(theta); 0 sin(theta) cos(theta) ]; */
@@ -210,8 +210,11 @@ float crossArea( int nThetaSteps, int nPhiStepsMax, float gasRadius, char *fileN
    { 
      /*RStheta = PDB_struct.crds(:,1:3) * Rx;*/
      RStheta[crdIndex]     = PDB_struct->crds[crdIndex]; /* rotation is about x axis */
-     RStheta[crdIndex + 1] = Rx[1][1] * PDB_struct->crds[crdIndex + 1] + Rx[1][2] * PDB_struct->crds[crdIndex + 2];
-     RStheta[crdIndex + 2] = Rx[2][1] * PDB_struct->crds[crdIndex + 1] + Rx[2][2] * PDB_struct->crds[crdIndex + 2];
+     RStheta[crdIndex + 1] = Rx[1][1] * PDB_struct->crds[crdIndex + 1] +
+                             Rx[1][2] * PDB_struct->crds[crdIndex + 2];
+
+     RStheta[crdIndex + 2] = Rx[2][1] * PDB_struct->crds[crdIndex + 1] + 
+                             Rx[2][2] * PDB_struct->crds[crdIndex + 2];
    }
 
    /* sample evenly over the unit sphere; cast to int has same effect as 'floor'*/
@@ -223,7 +226,7 @@ float crossArea( int nThetaSteps, int nPhiStepsMax, float gasRadius, char *fileN
 
    for( phiStep = 1; phiStep <= nPhiSteps; phiStep++ )
    {
-     phi        = 2.0 * PI * phiStep / (float)nPhiSteps;
+     phi        = 2.0 * PI * phiStep / (double)nPhiSteps;
      /* rotate around y-axis and project into x-y plane */
      /* Ry_andProj = [ cos(phi) 0 sin(phi); 0 1 0; 0 0 0]; */
      Ry_andProj[0][0] = cos(phi);
@@ -246,23 +249,24 @@ float crossArea( int nThetaSteps, int nPhiStepsMax, float gasRadius, char *fileN
       fprintf( crossArea_logFile,  "Projecting at angles: %g %g\n", theta, phi );
      }
 
-     /* start guessing if points are in or out of the shape...scale max number of guesses with size of shape
+     /* start guessing if points are in or out of the shape
+     ** ...scale max number of guesses with size of shape
      ** but do not expect to reach this maximum */
      hitCount = 0;
      for( guessIndex = 1; guessIndex <= ( PDB_struct->L * PDB_struct->L ); guessIndex++ )     
      {
            /* random x-y coordinates in square of side L */
-           point[0] = ((rand()/((float)RAND_MAX)) - 0.5) * PDB_struct->L;
-           point[1] = ((rand()/((float)RAND_MAX)) - 0.5) * PDB_struct->L;
+           point[0] = ((rand()/((double)RAND_MAX)) - 0.5) * PDB_struct->L;
+           point[1] = ((rand()/((double)RAND_MAX)) - 0.5) * PDB_struct->L;
       
                       
-	  /*Test that the point is not in the corners of the square*/
-	   pointFromOrigin  =  ( point[0] * point[0] + point[1] * point[1] );
+	       /*Test that the point is not in the corners of the square*/
+           pointFromOrigin  =  ( point[0] * point[0] + point[1] * point[1] );
            usePointsInside  =   PDB_struct->L; 
            usePointsInside *=   usePointsInside;
 	  
            if( pointFromOrigin <= usePointsInside  )
-	   {
+	       {
 
 /* compiler switch, can use this to swap out the lookup grid for testing */
 #ifndef NO_LUT
@@ -275,11 +279,11 @@ float crossArea( int nThetaSteps, int nPhiStepsMax, float gasRadius, char *fileN
 						   PDB_struct, 
 						   gasRadius );
 #else
-	      /* test for collision exhaustively over atoms*/
+        /* test for collision exhaustively over atoms*/
 	    crdIndex = -3; 
 	    for( atomIndex = 0; atomIndex < PDB_struct->nAtoms; atomIndex++ ) 
 	    {
-	      float clearance, distance, vectorDistance[2];
+	      double clearance, distance, vectorDistance[2];
 	      
 	      crdIndex += 3;
 	      vectorDistance[0] = point[0] - RS_proj[crdIndex];
@@ -291,37 +295,37 @@ float crossArea( int nThetaSteps, int nPhiStepsMax, float gasRadius, char *fileN
 	      ** sqrt is numerically expensive */
 	      distance = vectorDistance[0]*vectorDistance[0] + vectorDistance[1]*vectorDistance[1]; 
 	      if( distance <= ( clearance * clearance ) )
-	      {
-		 hitCount += 1;
-		 break;
+	      { 
+             hitCount += 1;
+		     break;
 	      }
 	    } 
 	       
 #endif
-	   }             /* close if */
+	   }/* close if */
 
 
-           if( guessIndex % 100 == 0 ) /* test for convergence every X guesses */
+       if( guessIndex % 100 == 0 ) /* test for convergence every X guesses */
 	   {
-              if( guessIndex >= MIN_GUESSES )
+          if( guessIndex >= MIN_GUESSES )
 	      {
-                  p_hit          = hitCount / (float)guessIndex;  
+            p_hit          = hitCount / (double)guessIndex;  
 
-                  /* estimated std deviation of a binomial distribution */
-                  stdDevEstimate = sqrt( p_hit * ( 1 - p_hit ) / (float)guessIndex ); 
-                  errorRatio     = stdDevEstimate / p_hit;
+            /* estimated std deviation of a binomial distribution */
+            stdDevEstimate = sqrt( p_hit * ( 1 - p_hit ) / (double)guessIndex ); 
+            errorRatio     = stdDevEstimate / p_hit;
                  
-		  if( guessIndex % 1000 == 0 && crossArea_verboseFlag )
-		  {
+		    if( guessIndex % 1000 == 0 && crossArea_verboseFlag )
+		    {
                    fprintf( crossArea_logFile, "iteration: %i estimated error ratio: %f estimated area: %f\n", guessIndex, errorRatio, pow( PDB_struct->L, 2 ) * p_hit );
-                  }
+            }
 
-                  if( errorRatio < 0.001 && p_hit != 0.0 && p_hit != 1.0 )
-		  {
-		    break; /*stop making guesses, we have a reliable estimate*/
-                  }
-              }
-           }  
+            if( errorRatio < 0.001 && p_hit != 0.0 && p_hit != 1.0 )
+            {
+		      break; /*stop making guesses, we have a reliable estimate*/
+            }
+          }
+       }
        }      /*close loop over guesses */
 
      /*binomial distribution: expected number of hits  = guessIndex * p_hit
@@ -331,12 +335,12 @@ float crossArea( int nThetaSteps, int nPhiStepsMax, float gasRadius, char *fileN
      **so for 2DP accuracy, require sqrt(variance)/p_hit << 0.001
      */       
 
-       p_hit           = hitCount / (float)guessIndex;
+       p_hit           = hitCount / (double)guessIndex;
        areaEstimate    = pow( PDB_struct->L, 2 );
        areaEstimate   *= p_hit;
 
        stdDevEstimate  = pow( PDB_struct->L, 2 );
-       stdDevEstimate *= sqrt( p_hit * ( 1 - p_hit ) / (float)guessIndex );
+       stdDevEstimate *= sqrt( p_hit * ( 1 - p_hit ) / (double)guessIndex );
 
        meanArea   = meanArea + areaEstimate;
        meanError  = meanError + stdDevEstimate;
@@ -350,9 +354,9 @@ float crossArea( int nThetaSteps, int nPhiStepsMax, float gasRadius, char *fileN
 }
 
   /* work out mean cross sectional area */
-  meanArea  = meanArea / (float)angleCount; 
-  meanError = meanError / (float)angleCount;
- fprintf( crossArea_logFile, "Mean Area Over All Projections: %g\nTotal ESE: %g\n", meanArea, meanError / sqrt(angleCount - 1.0) );
+  meanArea  = meanArea  / (double)angleCount; 
+  meanError = meanError / (double)angleCount;
+  fprintf( crossArea_logFile, "Mean Area Over All Projections: %g\nTotal ESE: %g\n", meanArea, meanError / sqrt(angleCount - 1.0) );
 
   return( meanArea );
 
@@ -360,14 +364,14 @@ float crossArea( int nThetaSteps, int nPhiStepsMax, float gasRadius, char *fileN
 
 void fillLookupGrid( ATOM_T      **lookupGrid, 
 		     int           lookupGridLength, 
-		     float        *RS_proj, 
+		     double       *RS_proj, 
 		     ATOM_T       *atoms, 
 		     PDB_STRUCT_T *PDB_struct,
-		     float         gasRadius )
+		     double        gasRadius )
 {
   int     crdIndex, i, j, atomIndex, gridIndex;
   int     nAtoms;
-  float   x, y, l; 
+  double  x, y, l; 
 
   nAtoms = PDB_struct->nAtoms;
 
@@ -415,15 +419,15 @@ void fillLookupGrid( ATOM_T      **lookupGrid,
   return;
 
 }
-int lookupGridTestCollision( float         x, 
-			     float         y, 
+int lookupGridTestCollision( double        x, 
+			     double        y, 
 			     ATOM_T      **lookupGrid, 
 			     int           lookupGridLength, 
 			     PDB_STRUCT_T *PDB_struct,
-			     float         gasRadius)
+			     double        gasRadius)
 {
   int     i, j, gridIndex;
-  float   l;
+  double  l;
   ATOM_T *headAtom;
 
   l = PDB_struct->L * 0.5;
@@ -526,10 +530,10 @@ int lookupGridTestCollision( float         x,
 }
 
 
-int testGridSquare( ATOM_T *gridAtom, PDB_STRUCT_T *PDB_struct, float x, float y, float gasRadius )
+int testGridSquare( ATOM_T *gridAtom, PDB_STRUCT_T *PDB_struct, double x, double y, double gasRadius )
 {
-  float xx, yy, clearance;
-  int   crdIndex;
+  double xx, yy, clearance;
+  int    crdIndex;
 
   while( gridAtom != NULL )
   {

@@ -20,17 +20,17 @@
 #define DEFAULT_LARGEST_ATOMIC_RADIUS 1.0   
 
 typedef struct pdb_struct_tag {
-  float       *crds;
-  float       *atomicRadii;
-  float        L;
-  float        largestAtomicRadius;
+  double      *crds;
+  double      *atomicRadii;
+  double       L;
+  double       largestAtomicRadius;
   unsigned int nAtoms;
 } PDB_STRUCT_T;
 
 typedef struct radius_lookup_tag {
   char         atomId[RADIUS_COLUMN_MAX_WIDTH + 1];
   char         resId[RADIUS_COLUMN_MAX_WIDTH + 1];
-  float        radius;
+  double       radius;
 } RADIUS_LOOKUP_T;
 
 typedef enum record_name_id_tag {

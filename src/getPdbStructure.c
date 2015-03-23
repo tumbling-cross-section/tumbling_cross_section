@@ -24,9 +24,9 @@ unsigned int     removeBlanks( char *in, char *out, unsigned int inFieldLength )
 int              compareSubstr( char *shortString, char *longString );
 RADIUS_LOOKUP_T *readRadii( FILE *radiusFile, int *count  );
 REGEXP_RETURN_T  matches( char *mask, char *nameString );
-float            assignRadius( RADIUS_LOOKUP_T *radii, char *atomName, char *resName, int numDefs );
+double           assignRadius( RADIUS_LOOKUP_T *radii, char *atomName, char *resName, int numDefs );
 void             centreCoords( PDB_STRUCT_T *PDB_struct );
-float            setLargestRadius( PDB_STRUCT_T *PDB_struct  );
+double           setLargestRadius( PDB_STRUCT_T *PDB_struct  );
 
 /****************************************************%
 ** This function reads in a pdb file and a file of atomic radius definitions
@@ -42,7 +42,7 @@ PDB_STRUCT_T *getPdbStructure( char *filename, char *radiusFilename, int modelNu
   RECORD_NAME_ID_T recordName;
   PDB_STRUCT_T    *PDB_struct;
   FILE            *radius_fid, *fid;
-  float            radius, maxRadius, radiusFromCentre;
+  double           radius, maxRadius, radiusFromCentre;
   int              numOfAtom, missedAtoms, readingModel, count, numDefs;
   int              crdIndex;
   char             tline[PDB_RECORD_LENGTH], atType[PDB_COLUMN_MAX_WIDTH], resType[PDB_COLUMN_MAX_WIDTH];
@@ -74,8 +74,8 @@ PDB_STRUCT_T *getPdbStructure( char *filename, char *radiusFilename, int modelNu
 
   /*Allocate and Initialise*/
   PDB_struct               = (PDB_STRUCT_T *)malloc( sizeof( PDB_STRUCT_T ) );
-  PDB_struct->crds         = (float *)malloc( 3 * count * sizeof( float ) );
-  PDB_struct->atomicRadii  = (float *)malloc( count * sizeof( float ) );
+  PDB_struct->crds         = (double*)malloc( 3 * count * sizeof( double) );
+  PDB_struct->atomicRadii  = (double*)malloc( count * sizeof( double) );
   PDB_struct->nAtoms       =  (unsigned int)count; 
   numOfAtom   = 0;
   crdIndex    = 0;
@@ -225,8 +225,8 @@ else
 
 void centreCoords( PDB_STRUCT_T *PDB_struct )
 {
-  int   crdIndex;
-  float centre[3];
+  int    crdIndex;
+  double centre[3];
   
   centre[0]=0.0;
   centre[1]=0.0;
@@ -239,9 +239,9 @@ void centreCoords( PDB_STRUCT_T *PDB_struct )
     centre[2] += PDB_struct->crds[crdIndex + 2];
   }
 
-  centre[0] /= ((float)PDB_struct->nAtoms);
-  centre[1] /= ((float)PDB_struct->nAtoms);
-  centre[2] /= ((float)PDB_struct->nAtoms);
+  centre[0] /= ((double)PDB_struct->nAtoms);
+  centre[1] /= ((double)PDB_struct->nAtoms);
+  centre[2] /= ((double)PDB_struct->nAtoms);
 
   for( crdIndex = 0; crdIndex < PDB_struct->nAtoms * 3; crdIndex += 3 )
   {
@@ -278,10 +278,10 @@ void  printPDB_struct( PDB_STRUCT_T *PDB_struct, FILE *outHandle   )
 
 }
 
-float setLargestRadius( PDB_STRUCT_T *PDB_struct  ){
+double setLargestRadius( PDB_STRUCT_T *PDB_struct  ){
 
-  float r;
-  int   i;
+  double r;
+  int    i;
 
   r = DEFAULT_LARGEST_ATOMIC_RADIUS;
 
@@ -379,7 +379,7 @@ RADIUS_LOOKUP_T *readRadii( FILE *radiusFile, int *pt_count  )
       removeBlanks(&tline[4], radii[count].atomId, RADIUS_COLUMN_MAX_WIDTH );
       removeBlanks(&tline[8], radiusString, RADIUS_COLUMN_MAX_WIDTH );
             
-      radii[count].radius = atof( (const char*)radiusString );/* convert string to float */
+      radii[count].radius = atof( (const char*)radiusString );/* convert string to double*/
     
       fprintf(stderr, "%s %s\n%s\n%s\n", tline,radii[count].resId ,radii[count].atomId, radiusString );
 
@@ -394,10 +394,10 @@ RADIUS_LOOKUP_T *readRadii( FILE *radiusFile, int *pt_count  )
 
 
 /**%function to link atomname and residue type to its radius*/
-float assignRadius( RADIUS_LOOKUP_T *radii, char *atomName, char *resName, int numDefs )
+double assignRadius( RADIUS_LOOKUP_T *radii, char *atomName, char *resName, int numDefs )
 {
-  int   count, resMatch, atomMatch;
-  float radius  = -1.0; /** 'fail' value by default*/
+  int    count, resMatch, atomMatch;
+  double radius  = -1.0; /** 'fail' value by default*/
 
   for( count = 0; count < numDefs; count++ )
   { 

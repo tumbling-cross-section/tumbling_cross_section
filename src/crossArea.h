@@ -1,5 +1,5 @@
 
-float crossArea( int nThetaSteps, int nPhiStepsMax, float gasRadius, char *fileName, char *radiusFilename );
+double crossArea( int nThetaSteps, int nPhiStepsMax, double gasRadius, char *fileName, char *radiusFilename );
 
 
 /* global variables for the whole program */
