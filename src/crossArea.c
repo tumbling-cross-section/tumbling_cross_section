@@ -43,17 +43,18 @@ int  testGridSquare( ATOM_T *headAtom, PDB_STRUCT_T *PDB_struct, double x, doubl
 /* interface section - read, typecast and verify arguments then call the calculation */
 int main(int argc, char **argv)
 {
-  int    opt, optIndex, seed, nSteps;
+  int    opt, optIndex, seed, nSteps, nOrients;
   double gasRadius;
   char  *fileName, *radiusFileName, *logFileName;
  
   static struct option longOptions[] = {
     {"gasradius",  1, 0, 'g'},
-    {"radlib",     1, 0, 'r'},
     {"infile",     1, 0, 'i'},
-    {"seed",       1, 0, 's'},
-    {"nsteps",     1, 0, 'n'},
     {"logfile",    1, 0, 'l'},
+    {"nsteps",     1, 0, 'n'},
+    {"norients",   1, 0, 'o'},
+    {"radlib",     1, 0, 'r'},
+    {"seed",       1, 0, 's'},
     {"verbose",    0, 0, 'v'},
     {'\0', 0, 0, '\0'},
   };
@@ -63,27 +64,24 @@ int main(int argc, char **argv)
   fileName        = NULL;
   radiusFileName  = NULL;
   logFileName     = NULL;
-  seed            = 0;
-  nSteps          = 0;
+  seed            =  0;
+  nSteps          =  0;
+  nOrients        = 10; //default number of initial orientations
   
   crossArea_verboseFlag = 0;
   crossArea_logFile      = stdout; /* write to stdout by default */
   crossArea_errorLogFile = stderr;
 
   /* loop over arguments passed in */
-  for ( opt = getopt_long( argc, argv, "g:r:i:s:n:l:v",
+  for ( opt = getopt_long( argc, argv, "g:i:l:n:o:r:s:v",
         longOptions, &optIndex );
         opt != (char)-1;
-        opt  = getopt_long( argc, argv, "g:r:i:s:n:l:v",
+        opt  = getopt_long( argc, argv, "g:i:l:n:o:r:s:v",
         longOptions, &optIndex ) ) {
     
     switch ( opt ) {
     case 'g':
       gasRadius = atof( optarg );
-      break;
-    case 'r':
-      radiusFileName = (char *)malloc( ( strlen( optarg ) + 1 ) * sizeof (char) );
-      strcpy( radiusFileName, optarg );
       break;
     case 'i':
       fileName = (char *)malloc( ( strlen( optarg ) + 1 ) * sizeof (char) );
@@ -100,13 +98,20 @@ int main(int argc, char **argv)
       }
       crossArea_errorLogFile = crossArea_logFile; /* write both kinds of output to same file */
       break;
+    case 'n':
+      nSteps    = atoi( optarg );
+      break;
+    case 'o':
+      nOrients  = atoi( optarg );
+      break;
+    case 'r':
+      radiusFileName = (char *)malloc( ( strlen( optarg ) + 1 ) * sizeof (char) );
+      strcpy( radiusFileName, optarg );
+      break;
     case 's':
       /* seed the random number generator to ensure repeatability */
       seed = atoi( optarg );
       srand( seed );
-      break;
-    case 'n':
-      nSteps  = atoi( optarg );
       break;
     case 'v':
       fprintf( crossArea_logFile,"Verbose output engaged!\n");
@@ -131,17 +136,17 @@ int main(int argc, char **argv)
      return( EXIT_FAILURE );
   }
 
-  crossArea(  nSteps, gasRadius, fileName, radiusFileName );
+  crossArea(  nOrients, nSteps, gasRadius, fileName, radiusFileName );
 
   return( EXIT_SUCCESS );
 }
 
 
 
-double crossArea( int nSteps, double gasRadius, char *fileName, char *radiusFilename )
+double crossArea( int nOrients, int nSteps, double gasRadius, char *fileName, char *radiusFilename )
 {
   PDB_STRUCT_T *PDB_struct;
-  int           angleCount, fibStep;
+  int           angleCount, fibStep, orientStep;
   double        theta, phi;
   double        Rx[3][3], Ry_andProj[3][3], *RStheta, *RS_proj;
   double        point[2], pointFromOrigin;
@@ -152,6 +157,7 @@ double crossArea( int nSteps, double gasRadius, char *fileName, char *radiusFile
   int           hitCount, lookupGridLength;
   ATOM_T      **lookupGrid, *atomTags;
   double        goldenRatio;
+  double        theta_perturb, phi_perturb;
 
   fprintf( crossArea_logFile,  "Reading coordinates from file \"%s\" and radii from \"%s\"\n", fileName, radiusFilename);
 
@@ -177,7 +183,6 @@ double crossArea( int nSteps, double gasRadius, char *fileName, char *radiusFile
   lookupGridLength = 1 + ((int)(PDB_struct->L / ( gasRadius + PDB_struct->largestAtomicRadius ) ) );
   lookupGrid = (ATOM_T **)malloc( lookupGridLength * lookupGridLength * sizeof(ATOM_T *) );
 
-
   /* unchanging parts of the rotation matrix about the x axis */
   Rx[0][0] = 1.0;
   Rx[0][1] = 0.0;
@@ -191,8 +196,16 @@ double crossArea( int nSteps, double gasRadius, char *fileName, char *radiusFile
   meanError    = 0.0;
 
   /** The most irrational of all numbers */
-  goldenRatio  = (1.0 + sqrt(5.0)) / 2.0; // golden ratio
+  goldenRatio  = (1.0 + sqrt(5.0)) / 2.0; 
   
+  /* loop over randomly oriented grids */
+  for( orientStep = 0; orientStep < nOrients; orientStep++ ){
+
+    theta_perturb = 0.5 - (rand()/(double)RAND_MAX);
+    phi_perturb   = 0.5 - (rand()/(double)RAND_MAX);
+
+    //theta_perturb = 0.; phi_perturb = 0.;
+
   /** Loop over orientations on a Fibbonacci grid.
    **
    ** For pseudocode (and helpful diagram)
@@ -204,11 +217,14 @@ double crossArea( int nSteps, double gasRadius, char *fileName, char *radiusFile
    */
   for( fibStep = -nSteps; fibStep <= nSteps; fibStep++ ){
 
-    //asin: returns values on [-pi/2....pi/2].
-    theta = asin( (2*fibStep) / (double)(2*nSteps+1) );
-    theta = theta + PI; //nicer to have range on [0...PI]
+    //asin: takes values on (-1,1) and returns values on [-pi/2....pi/2].
+    double  r;
+    r     =  (2*fibStep+theta_perturb) / (double)(2*nSteps+1);
+    theta = asin( r );
+    theta = theta + 0.5*PI;
 
-    phi   = 2.0 * PI * fibStep / goldenRatio;
+    phi   = 2.0 * PI * (fibStep+phi_perturb) / goldenRatio;
+   
 
     printf("##angle: %f %f\n", theta, phi);
 
@@ -352,7 +368,8 @@ double crossArea( int nSteps, double gasRadius, char *fileName, char *radiusFile
        {
 	fprintf( crossArea_logFile, "Calculation converged for this set of angles. Area: %g Estimated Error: %g\n", areaEstimate, stdDevEstimate);
        }
-   }
+   }  //close loop over grid orientations
+  }   //close loop over randomly oriented grids
 
 
   /* work out mean cross sectional area */
