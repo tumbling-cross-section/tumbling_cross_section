@@ -75,6 +75,7 @@ PDB_STRUCT_T *getPdbStructure( char *filename, char *radiusFilename, int modelNu
   /*Allocate and Initialise*/
   PDB_struct               = (PDB_STRUCT_T *)malloc( sizeof( PDB_STRUCT_T ) );
   PDB_struct->crds         = (double*)malloc( 3 * count * sizeof( double) );
+  PDB_struct->crds_store   = (double*)malloc( 3 * count * sizeof( double) );
   PDB_struct->atomicRadii  = (double*)malloc( count * sizeof( double) );
   PDB_struct->nAtoms       =  (unsigned int)count; 
   numOfAtom   = 0;
@@ -218,6 +219,9 @@ else
  {
    printPDB_struct( PDB_struct, crossArea_logFile );
  }
+
+ /*keep the original coords to prevent accumulation of numerical errors after rotation*/
+ memcpy(PDB_struct->crds_store, PDB_struct->crds, 3*sizeof(double)*PDB_struct->nAtoms);
 
  return( PDB_struct );
 

@@ -21,6 +21,7 @@
 
 typedef struct pdb_struct_tag {
   double      *crds;
+  double      *crds_store;
   double      *atomicRadii;
   double       L;
   double       largestAtomicRadius;

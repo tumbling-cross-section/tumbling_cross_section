@@ -30,15 +30,14 @@ void fillLookupGrid(          ATOM_T      **lookupGrid,
 			      ATOM_T       *atoms, 
 			      PDB_STRUCT_T *PDB_struct,
 			      double        gasRadius);
-
 int  lookupGridTestCollision( double        x, 
 			      double        y, 
 			      ATOM_T      **lookupGrid, 
 			      int           lookupGridLength, 
 			      PDB_STRUCT_T *PDB_struct,
 			      double        gasRadius);
-
 int  testGridSquare( ATOM_T *headAtom, PDB_STRUCT_T *PDB_struct, double x, double y, double gasRadius );
+void randomRotation(PDB_STRUCT_T *struc);
 
 /* interface section - read, typecast and verify arguments then call the calculation */
 int main(int argc, char **argv)
@@ -142,7 +141,6 @@ int main(int argc, char **argv)
 }
 
 
-
 double crossArea( int nOrients, int nSteps, double gasRadius, char *fileName, char *radiusFilename )
 {
   PDB_STRUCT_T *PDB_struct;
@@ -157,7 +155,6 @@ double crossArea( int nOrients, int nSteps, double gasRadius, char *fileName, ch
   int           hitCount, lookupGridLength;
   ATOM_T      **lookupGrid, *atomTags;
   double        goldenRatio;
-  double        theta_perturb, phi_perturb;
 
   fprintf( crossArea_logFile,  "Reading coordinates from file \"%s\" and radii from \"%s\"\n", fileName, radiusFilename);
 
@@ -201,12 +198,10 @@ double crossArea( int nOrients, int nSteps, double gasRadius, char *fileName, ch
   /* loop over randomly oriented grids */
   for( orientStep = 0; orientStep < nOrients; orientStep++ ){
 
-    theta_perturb = 0.5 - (rand()/(double)RAND_MAX);
-    phi_perturb   = 0.5 - (rand()/(double)RAND_MAX);
+    /* shift the coordinates to a random orientation */
+    randomRotation(PDB_struct);
 
-    //theta_perturb = 0.; phi_perturb = 0.;
-
-  /** Loop over orientations on a Fibbonacci grid.
+  /** Sub-Loop over orientations on a Fibbonacci grid.
    **
    ** For pseudocode (and helpful diagram)
    ** see in-press article by Gonzalez in Mathematical 
@@ -219,14 +214,13 @@ double crossArea( int nOrients, int nSteps, double gasRadius, char *fileName, ch
 
     //asin: takes values on (-1,1) and returns values on [-pi/2....pi/2].
     double  r;
-    r     =  (2*fibStep+theta_perturb) / (double)(2*nSteps+1);
+    r     =  (2*fibStep) / (double)(2*nSteps+1);
     theta = asin( r );
     theta = theta + 0.5*PI;
 
-    phi   = 2.0 * PI * (fibStep+phi_perturb) / goldenRatio;
+    phi   = 2.0 * PI * (fibStep) / goldenRatio;
    
-
-    printf("##angle: %f %f\n", theta, phi);
+    /*printf("##angle: %f %f\n", theta, phi);*/
 
     /* rotation matrix around x-axis 
     ** Rx = [1 0 0; 0 cos(theta) -sin(theta); 0 sin(theta) cos(theta) ]; */
@@ -369,6 +363,12 @@ double crossArea( int nOrients, int nSteps, double gasRadius, char *fileName, ch
 	fprintf( crossArea_logFile, "Calculation converged for this set of angles. Area: %g Estimated Error: %g\n", areaEstimate, stdDevEstimate);
        }
    }  //close loop over grid orientations
+
+   if( crossArea_verboseFlag == 1 || crossArea_verboseFlag == 0 ){
+     fprintf( crossArea_logFile, "Finished grid loop at given grid orientation, running estimates: %f pm %f\n",
+              meanArea/(double)angleCount, meanError/(angleCount*sqrt(angleCount - 1.0)));
+   }
+
   }   //close loop over randomly oriented grids
 
 
@@ -573,5 +573,47 @@ int testGridSquare( ATOM_T *gridAtom, PDB_STRUCT_T *PDB_struct, double x, double
   }
 
   return( 0 );
+
+}
+
+/*Random rotation to apply before placing a 
+ *Fibonacci grid over the molecule.*/
+void randomRotation(PDB_STRUCT_T *struc){
+  
+  double theta, phi;
+  double xx, yy, zz, cTheta, sTheta, cPhi, sPhi;
+  int    i;
+
+  /*random numbers on [0,1]*/
+  theta = rand()/(double)RAND_MAX;
+  phi   = rand()/(double)RAND_MAX;
+
+  /* random angles on unit sphere */
+  theta    = acos(2*theta-1.);
+  phi     *= 2*PI;
+
+  /*fprintf(stderr, "orientations: %f %f\n", theta, phi);*/
+
+  cTheta = cos(theta);
+  sTheta = sin(theta);
+  cPhi   = cos(phi);
+  sPhi   = sin(phi);
+  
+  /* reinitialise the coordinates */
+  memcpy(struc->crds, struc->crds_store, 3*sizeof(double)*struc->nAtoms);
+
+  /* reorient them */
+  for(i = 0; i < struc->nAtoms; i++ ){
+    
+    /*apply longitude rotation*/
+    xx = struc->crds[i*3+2]*sTheta + struc->crds[i*3]*cTheta;
+    yy = struc->crds[i*3+1]; /* rot around y*/
+    zz = struc->crds[i*3+2]*cTheta - struc->crds[i*3]*sTheta;
+
+    /*apply latitude rotation*/
+    struc->crds[i*3]   = yy*sPhi + xx*cTheta;
+    struc->crds[i*3+1] = yy*cPhi - xx*sTheta;
+    struc->crds[i*3+2] = zz; /* rot around z*/
+  }
 
 }
